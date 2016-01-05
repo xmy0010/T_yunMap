@@ -10,6 +10,6 @@
 
 @interface DropControl : UIControl
 
-- (instancetype)initWithSuperView:(UIView *)superView;
+- (instancetype)initWithInsideFrame:(CGRect)frame InSuperView:(UIView *)suView;
 
 @end
