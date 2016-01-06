@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A9F92101C3D37A500E9D793 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F920F1C3D37A500E9D793 /* TitleButton.m */; };
-		4A9F92131C3D391E00E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92121C3D391E00E9D793 /* TypeSettingView.m */; };
+		4A9F921B1C3D6AB200E9D793 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92181C3D6AB200E9D793 /* TitleButton.m */; };
+		4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */; };
 		4ADEA9491C3C01FF00D68F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9481C3C01FF00D68F9B /* main.m */; };
 		4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94B1C3C01FF00D68F9B /* AppDelegate.m */; };
 		4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94E1C3C01FF00D68F9B /* ViewController.m */; };
@@ -41,10 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A9F920E1C3D37A500E9D793 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
-		4A9F920F1C3D37A500E9D793 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
-		4A9F92111C3D391E00E9D793 /* TypeSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeSettingView.h; path = ../../../../TypeSettingView.h; sourceTree = "<group>"; };
-		4A9F92121C3D391E00E9D793 /* TypeSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TypeSettingView.m; path = ../../../../TypeSettingView.m; sourceTree = "<group>"; };
+		4A9F92171C3D6AB200E9D793 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
+		4A9F92181C3D6AB200E9D793 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSettingView.h; sourceTree = "<group>"; };
+		4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSettingView.m; sourceTree = "<group>"; };
 		4ADEA9441C3C01FF00D68F9B /* T_yunMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T_yunMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADEA9481C3C01FF00D68F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4ADEA94A1C3C01FF00D68F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = T_yunMap/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -105,6 +105,17 @@
 				D20380C7E7E1B76B5930084F /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A9F92161C3D6AB200E9D793 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A9F92171C3D6AB200E9D793 /* TitleButton.h */,
+				4A9F92181C3D6AB200E9D793 /* TitleButton.m */,
+				4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */,
+				4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4ADEA93B1C3C01FF00D68F9B = {
@@ -186,9 +197,9 @@
 		4ADEA9881C3C050F00D68F9B /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				4A9F92161C3D6AB200E9D793 /* Views */,
 				4ADEA9891C3C050F00D68F9B /* Controllers */,
 				4ADEA98A1C3C050F00D68F9B /* Models */,
-				4ADEA98B1C3C050F00D68F9B /* Views */,
 			);
 			path = Homepage;
 			sourceTree = "<group>";
@@ -207,17 +218,6 @@
 			children = (
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		4ADEA98B1C3C050F00D68F9B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4A9F920E1C3D37A500E9D793 /* TitleButton.h */,
-				4A9F920F1C3D37A500E9D793 /* TitleButton.m */,
-				4A9F92111C3D391E00E9D793 /* TypeSettingView.h */,
-				4A9F92121C3D391E00E9D793 /* TypeSettingView.m */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		4ADEA98C1C3C071F00D68F9B /* AppDelegate */ = {
@@ -421,13 +421,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
-				4A9F92101C3D37A500E9D793 /* TitleButton.m in Sources */,
+				4A9F921B1C3D6AB200E9D793 /* TitleButton.m in Sources */,
 				4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */,
 				4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */,
 				4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */,
-				4A9F92131C3D391E00E9D793 /* TypeSettingView.m in Sources */,
+				4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

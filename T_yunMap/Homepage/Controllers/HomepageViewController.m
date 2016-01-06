@@ -90,7 +90,6 @@ static const CGFloat ButtonWidth_Height = 40.;
 #pragma mark - Action
 - (void)mapTypeButtonPressed:(UIButton *)sender {
 
-    NSLog(@"button");
   
     [self.typeView show];
 }
