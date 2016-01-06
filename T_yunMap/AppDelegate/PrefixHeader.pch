@@ -15,4 +15,9 @@
 #define Gaode_key @"7aba12b9ad249abbfead931f51ae516f"
 
 
+#define ScreenSize [UIScreen mainScreen].bounds.size
+
+#define Space_Normal_Eight 8.
+
+
 #endif /* PrefixHeader_pch */

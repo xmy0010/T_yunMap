@@ -9,13 +9,19 @@
 #import "HomepageViewController.h"
 #import "UIView+XMYExtension.h"
 #import <MAMapKit/MAMapKit.h>
+#import "TitleButton.h"
+#import "TypeSettingView.h"
 
 static const CGFloat ButtonWidth_Height = 40.;
+#define TypeButtonY  ScreenSize.height / 2
 
 @interface HomepageViewController () <MAMapViewDelegate> {
 
     MAMapView *_mapView;
+    UIView *_upView;
 }
+
+@property (nonatomic, strong) TypeSettingView *typeView;
 
 @end
 
@@ -27,6 +33,14 @@ static const CGFloat ButtonWidth_Height = 40.;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self customMap];
+    [self customUpView];
+    
+    CGFloat viewWidth = ScreenSize.width - 2 * Space_Normal_Eight;
+    CGFloat viewHeight = 100;
+    CGRect rect = CGRectMake(Space_Normal_Eight, (ScreenSize.height - viewHeight) / 2, viewWidth, viewHeight);
+    TypeSettingView *typeView = [[TypeSettingView alloc] initWithInsideViewFrame:rect inView:self.view mapView:_mapView];
+    self.typeView = typeView;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,31 +59,40 @@ static const CGFloat ButtonWidth_Height = 40.;
     
     
     
-    [self customRightButtons];
+   
+}
+
+- (void)customUpView {
+
+    _upView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _upView.backgroundColor = [UIColor clearColor];
+    _upView.userInteractionEnabled = YES;
+    [self.view addSubview:_upView];
+    
+     [self customRightButtons];
 }
 
 - (void)customRightButtons {
 
     
-    UIButton *mapTypeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_mapView addSubview:mapTypeButton];
-    mapTypeButton.frame = CGRectMake(_mapView.xmy_width - 50, 100, ButtonWidth_Height, ButtonWidth_Height);
-    mapTypeButton.backgroundColor = [UIColor redColor];
+    UIButton *mapTypeButton = [[UIButton alloc] init];
+    [_upView addSubview:mapTypeButton];
+    mapTypeButton.frame = CGRectMake(_upView.xmy_width - 50, TypeButtonY, ButtonWidth_Height, ButtonWidth_Height);
     [mapTypeButton addTarget:self action:@selector(mapTypeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-   
-    UIButton *trafficButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_mapView addSubview:trafficButton];
-    mapTypeButton.frame = CGRectMake(_mapView.xmy_width - 50, CGRectGetMaxX(mapTypeButton.frame) + 10 , ButtonWidth_Height, ButtonWidth_Height);
-    trafficButton.backgroundColor = [UIColor redColor];
-    [trafficButton addTarget:self action:@selector(trafficButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [mapTypeButton setImage:[UIImage imageNamed:@"homepage_typechose_button"] forState:UIControlStateNormal];
     
+   
+    
+  
 }
 
 
 #pragma mark - Action
 - (void)mapTypeButtonPressed:(UIButton *)sender {
 
-    
+    NSLog(@"button");
+  
+    [self.typeView show];
 }
 
 - (void)trafficButtonPressed:(UIButton *)sender {
