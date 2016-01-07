@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4A9F921B1C3D6AB200E9D793 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92181C3D6AB200E9D793 /* TitleButton.m */; };
 		4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */; };
+		4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */; };
+		4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */; };
 		4ADEA9491C3C01FF00D68F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9481C3C01FF00D68F9B /* main.m */; };
 		4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94B1C3C01FF00D68F9B /* AppDelegate.m */; };
 		4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94E1C3C01FF00D68F9B /* ViewController.m */; };
@@ -45,6 +47,10 @@
 		4A9F92181C3D6AB200E9D793 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
 		4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSettingView.h; sourceTree = "<group>"; };
 		4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSettingView.m; sourceTree = "<group>"; };
+		4A9F921D1C3E87A000E9D793 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
+		4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
+		4A9F92201C3E925F00E9D793 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
+		4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
 		4ADEA9441C3C01FF00D68F9B /* T_yunMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T_yunMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADEA9481C3C01FF00D68F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4ADEA94A1C3C01FF00D68F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = T_yunMap/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -114,6 +120,10 @@
 				4A9F92181C3D6AB200E9D793 /* TitleButton.m */,
 				4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */,
 				4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */,
+				4A9F921D1C3E87A000E9D793 /* CustomCalloutView.h */,
+				4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */,
+				4A9F92201C3E925F00E9D793 /* CustomAnnotationView.h */,
+				4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,7 +432,9 @@
 			files = (
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
 				4A9F921B1C3D6AB200E9D793 /* TitleButton.m in Sources */,
+				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
 				4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */,
+				4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */,
 				4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */,
