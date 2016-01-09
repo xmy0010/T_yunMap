@@ -44,17 +44,18 @@
     self.portaitView = [[UIImageView alloc] initWithFrame:CGRectMake(kPortraitMargin, kPortraitMargin, kPortraitWidth, kPortraitHeight)];
     
     self.portaitView.backgroundColor = [UIColor blackColor];
-    [self addSubview:self.portaitView];
+    [self addSubview:_portaitView];
     
     //添加商户名
     self.titleLable = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin, kTitleWidth, kTitleHeight)];
     self.titleLable.font = [UIFont systemFontOfSize:14];
+    self.titleLable.adjustsFontSizeToFitWidth = YES;
     self.titleLable.textColor = [UIColor whiteColor];
     self.titleLable.text = @"this is a title";
     [self addSubview:_titleLable];
     
     //添加商户地址
-    self.subtitleLable = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight, kTitleWidth, kTitleHeight)];
+    self.subtitleLable = [[UILabel alloc] initWithFrame:CGRectMake(kPortraitMargin * 2 + kPortraitWidth, kPortraitMargin * 2 + kTitleHeight , kTitleWidth, kTitleHeight)];
     self.subtitleLable.font = [UIFont systemFontOfSize:12];
     self.subtitleLable.text = @"this is a subTitle";
     self.subtitleLable.textColor = [UIColor lightGrayColor];
@@ -82,11 +83,13 @@
 - (void)setTitle:(NSString *)title {
 
     self.titleLable.text = title;
+//    NSLog(@"3%@", _titleLable.text);
 }
 
 - (void)setSubTitle:(NSString *)subTitle {
 
     self.subtitleLable.text = subTitle;
+//    NSLog(@"%@", subTitle);
 }
 
 - (void)setImage:(UIImage *)image {

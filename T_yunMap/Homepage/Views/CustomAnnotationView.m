@@ -23,27 +23,30 @@
 
     if (self.selected == selected) {
         
+        NSLog(@"1%d", self.selected);
         return;
     }
     
     if (selected) {
-        
+//        NSLog(@"2%d", self.selected);
         if (self.calloutView == nil) {
-            
             self.calloutView = [[CustomCalloutView alloc] initWithFrame:CGRectMake(0, 0, kCalloutWidth, kCalloutHeight)];
             self.calloutView.center = CGPointMake(CGRectGetWidth(self.bounds) / 2.f + self.calloutOffset.x, -CGRectGetHeight(self.calloutView.bounds) / 2.f + self.calloutOffset.y);
+        }
+        
+        self.calloutView.image = [UIImage imageNamed: @"mansion"];
+        self.calloutView.title = self.annotation.title;
+//        NSLog(@"2%@", self.annotation.title);
+        self.calloutView.subTitle = self.annotation.subtitle;
             
-            self.calloutView.image = [UIImage imageNamed: @"mansion"];
-            self.calloutView.title = self.annotation.title;
-            self.calloutView.subTitle = self.annotation.subtitle;
-            
-            [self addSubview:self.calloutView];
+        [self addSubview:self.calloutView];
         } else {
+            
             [self.calloutView removeFromSuperview];
         }
         
         [super setSelected:selected animated:animated];
-    }
+    
 }
 
 @end
