@@ -11,6 +11,9 @@
 		4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */; };
 		4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */; };
 		4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */; };
+		4A9F92251C40F26500E9D793 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92241C40F26500E9D793 /* BaseModel.m */; };
+		4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92271C40F29800E9D793 /* RouteModel.m */; };
+		4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F922A1C40F37F00E9D793 /* PathModel.m */; };
 		4ADEA9491C3C01FF00D68F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9481C3C01FF00D68F9B /* main.m */; };
 		4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94B1C3C01FF00D68F9B /* AppDelegate.m */; };
 		4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94E1C3C01FF00D68F9B /* ViewController.m */; };
@@ -51,6 +54,12 @@
 		4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalloutView.m; sourceTree = "<group>"; };
 		4A9F92201C3E925F00E9D793 /* CustomAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationView.h; sourceTree = "<group>"; };
 		4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotationView.m; sourceTree = "<group>"; };
+		4A9F92231C40F26500E9D793 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		4A9F92241C40F26500E9D793 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		4A9F92261C40F29800E9D793 /* RouteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteModel.h; sourceTree = "<group>"; };
+		4A9F92271C40F29800E9D793 /* RouteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteModel.m; sourceTree = "<group>"; };
+		4A9F92291C40F37F00E9D793 /* PathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathModel.h; sourceTree = "<group>"; };
+		4A9F922A1C40F37F00E9D793 /* PathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathModel.m; sourceTree = "<group>"; };
 		4ADEA9441C3C01FF00D68F9B /* T_yunMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T_yunMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADEA9481C3C01FF00D68F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4ADEA94A1C3C01FF00D68F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = T_yunMap/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -226,6 +235,12 @@
 		4ADEA98A1C3C050F00D68F9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4A9F92231C40F26500E9D793 /* BaseModel.h */,
+				4A9F92241C40F26500E9D793 /* BaseModel.m */,
+				4A9F92261C40F29800E9D793 /* RouteModel.h */,
+				4A9F92271C40F29800E9D793 /* RouteModel.m */,
+				4A9F92291C40F37F00E9D793 /* PathModel.h */,
+				4A9F922A1C40F37F00E9D793 /* PathModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -438,11 +453,14 @@
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
 				4A9F921B1C3D6AB200E9D793 /* TitleButton.m in Sources */,
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
+				4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */,
+				4A9F92251C40F26500E9D793 /* BaseModel.m in Sources */,
 				4ADEA94F1C3C01FF00D68F9B /* ViewController.m in Sources */,
 				4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */,
 				4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */,
+				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,
 				4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */,
 				4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */,
 			);

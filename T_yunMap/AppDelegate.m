@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <MAMapKit/MAMapKit.h>
 #import "HomepageViewController.h"
 
 @interface AppDelegate ()
@@ -20,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [MAMapServices sharedServices].apiKey = Gaode_key;
+    [AMapSearchServices sharedServices].apiKey = Gaode_key;
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

@@ -15,10 +15,13 @@
 static const CGFloat ButtonWidth_Height = 40.;
 #define TypeButtonY  ScreenSize.height / 2
 
-@interface HomepageViewController () <MAMapViewDelegate> {
+@interface HomepageViewController () <MAMapViewDelegate, AMapSearchDelegate> {
 
     MAMapView *_mapView;
     UIView *_upView;
+    AMapSearchAPI *_aroundSearch;
+    AMapSearchAPI *_routeSearch;
+    
 }
 
 @property (nonatomic, strong) TypeSettingView *typeView;
@@ -36,7 +39,8 @@ static const CGFloat ButtonWidth_Height = 40.;
 //    [self customUpView];
     
     
-    
+    [self setupSearchAPI];
+    [self setupRouteSearch];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,6 +78,9 @@ static const CGFloat ButtonWidth_Height = 40.;
 - (void)setupGestures {
 
     _mapView.zoomEnabled = YES;
+    
+    _mapView.zoomLevel = 5;
+    
     _mapView.scrollEnabled = YES;
     _mapView.rotateEnabled = YES;
     _mapView.rotateCameraEnabled = YES;
@@ -128,6 +135,46 @@ static const CGFloat ButtonWidth_Height = 40.;
     [mapTypeButton addTarget:self action:@selector(mapTypeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [mapTypeButton setImage:[UIImage imageNamed:@"homepage_typechose_button"] forState:UIControlStateNormal];
   
+}
+
+#pragma mark - AMapSearchAPI
+/**周边兴趣点搜索*/
+- (void)setupSearchAPI {
+
+    _aroundSearch = [[AMapSearchAPI alloc] init];
+    _aroundSearch.delegate = self;
+    
+    //构造AMapPOIAroundSearchRequest对象 设置周边请求参数
+    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+    request.location = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
+    request.keywords = @"方恒";
+    // types属性表示限定搜索POI的类别，默认为：餐饮服务|商务住宅|生活服务
+    // POI的类型共分为20种大类别，分别为：
+    // 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
+    // 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
+    // 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
+    request.types = @"餐饮服务|生活服务";
+    request.sortrule = 0;
+    request.requireExtension = YES;
+    
+    [_aroundSearch AMapPOIAroundSearch:request];
+}
+
+/**路径导航搜索*/
+- (void)setupRouteSearch {
+
+    _routeSearch = [[AMapSearchAPI alloc] init];
+    _routeSearch.delegate = self;
+    
+    //构造AMapDrivingRouteSearchRequest对象 设置驾车路径规划请求参数
+    AMapDrivingRouteSearchRequest *request = [[AMapDrivingRouteSearchRequest alloc] init];
+    request.origin = [AMapGeoPoint locationWithLatitude:30.662221 longitude:104.041367];
+    request.destination = [AMapGeoPoint locationWithLatitude:30.69 longitude:104.06];
+    /// 驾车导航策略：0-速度优先（时间）；1-费用优先（不走收费路段的最快道路）；2-距离优先；3-不走快速路；4-结合实时交通（躲避拥堵）；5-多策略（同时使用速度优先、费用优先、距离优先三个策略）；6-不走高速；7-不走高速且避免收费；8-躲避收费和拥堵；9-不走高速且躲避收费和拥堵
+    request.strategy = 2;
+    request.requireExtension = YES;
+    
+    [_routeSearch AMapDrivingRouteSearch:request];
 }
 
 
@@ -239,8 +286,10 @@ static const CGFloat ButtonWidth_Height = 40.;
         }];
 
     }
+    _mapView.zoomLevel = 13;
 }
 
+/**地图添加图层调用*/
 //自定义定位精度对应的MACircleView
 - (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id<MAOverlay>)overlay {
 
@@ -270,6 +319,18 @@ static const CGFloat ButtonWidth_Height = 40.;
         return circleView;
     }
     
+    if ([overlay isKindOfClass:[MAPolyline class]]) {
+        
+        MAPolylineView *polylineView = [[MAPolylineView alloc] initWithPolyline:overlay];
+        
+        polylineView.lineWidth = 8.f;
+        polylineView.strokeColor = [UIColor colorWithRed:0 green:0 blue:1 alpha:0.6];
+        polylineView.lineJoinType = kMALineJoinRound; //连接类型
+        polylineView.lineCapType = kMALineCapRound; //断点类型
+        
+        return polylineView;
+    }
+    
     return nil;
 }
 
@@ -277,8 +338,10 @@ static const CGFloat ButtonWidth_Height = 40.;
 
 
 
+
 #pragma mark - <MAMapViewDelegate>
 
+/**地图添加点回调*/
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation {
 
     [self getGeoCoderInfoWith:annotation];
@@ -316,6 +379,85 @@ static const CGFloat ButtonWidth_Height = 40.;
     }
     
     return nil;
+}
+
+#pragma mark <AMapSearchDelegate>
+
+//周边兴趣搜索回调
+-(void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response {
+
+    if (response.pois.count == 0) {
+        
+        return;
+    }
+    
+    //通过AMapPOISearchResponse对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
+    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion :%@", response.suggestion];
+    NSString *strPoi = @"";
+    for (AMapPOI *p in response.pois) {
+        
+        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@ \n %@", strCount, strSuggestion, strPoi];
+    NSLog(@"Place:%@", result);
+
+}
+
+/**路径搜索回调*/
+- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
+
+    if (response.route == nil) {
+        return;
+    }
+    
+    //通过AMapNavigationSearchResponse对象处理搜索结果
+    AMapRoute *route = response.route;
+    AMapPath *path = [route.paths firstObject];
+    NSArray *steps = path.steps;
+    
+    NSMutableArray *routePolies = @[].mutableCopy;
+    for (AMapStep *step in steps) {
+        
+        NSString *polyline = step.polyline;
+        NSArray *polies = [polyline componentsSeparatedByString:@";"];
+        for (NSString *poly in polies) {
+            
+            [routePolies addObject:poly];
+        }
+    }
+    
+    /**绘制折线*/
+   
+    //1.构造折线数据对象
+    CLLocationCoordinate2D commonPolylineCoords[routePolies.count];
+    CLLocationCoordinate2D commonPolylineCoords__[2];
+    commonPolylineCoords__[0].latitude = 30.662221;
+    commonPolylineCoords__[0].longitude = 104.041367;
+    
+    commonPolylineCoords__[1].latitude = 30.69;
+    commonPolylineCoords__[1].longitude = 104.06;
+
+    
+    for (int index = 0; index < routePolies.count; index++) {
+        NSArray *coordinateArr = [routePolies[index] componentsSeparatedByString:@","];
+        
+        
+        commonPolylineCoords[index].latitude = [coordinateArr.firstObject floatValue];
+        commonPolylineCoords[index].longitude = [coordinateArr.lastObject floatValue];
+    }
+    
+    //2.构造折线对象
+    MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:commonPolylineCoords__ count:routePolies.count];
+    
+    //3.在地图上添加折线对象
+    [_mapView addOverlay:commonPolyline];
+    
+    
+    
+    //NSString *route = [NSString stringWithFormat:@"Navi:%@", [response.route formattedDescription]];
+    NSLog(@"%@", routePolies);
+    
 }
 
 @end
