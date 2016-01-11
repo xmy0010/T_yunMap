@@ -429,26 +429,22 @@ static const CGFloat ButtonWidth_Height = 40.;
     
     /**绘制折线*/
    
+    
     //1.构造折线数据对象
     CLLocationCoordinate2D commonPolylineCoords[routePolies.count];
-    CLLocationCoordinate2D commonPolylineCoords__[2];
-    commonPolylineCoords__[0].latitude = 30.662221;
-    commonPolylineCoords__[0].longitude = 104.041367;
-    
-    commonPolylineCoords__[1].latitude = 30.69;
-    commonPolylineCoords__[1].longitude = 104.06;
 
     
     for (int index = 0; index < routePolies.count; index++) {
         NSArray *coordinateArr = [routePolies[index] componentsSeparatedByString:@","];
         
-        
-        commonPolylineCoords[index].latitude = [coordinateArr.firstObject floatValue];
-        commonPolylineCoords[index].longitude = [coordinateArr.lastObject floatValue];
+        NSLog(@"--%d, %f, %f",index, [coordinateArr.firstObject floatValue], [coordinateArr.lastObject floatValue]);
+        commonPolylineCoords[index].longitude = [coordinateArr.firstObject floatValue];
+        commonPolylineCoords[index].latitude = [coordinateArr.lastObject floatValue];
     }
+
     
     //2.构造折线对象
-    MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:commonPolylineCoords__ count:routePolies.count];
+    MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:commonPolylineCoords count:routePolies.count];
     
     //3.在地图上添加折线对象
     [_mapView addOverlay:commonPolyline];
