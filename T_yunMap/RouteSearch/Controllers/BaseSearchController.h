@@ -1,5 +1,5 @@
 //
-//  ToolBarView.h
+//  BaseSearchController.h
 //  T_yunMap
 //
 //  Created by T_yun on 16/1/12.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ToolBarView : UIView
+@interface BaseSearchController : UIViewController
 
-@property (nonatomic, copy) void(^RouteButtonBlock)(UIButton *);
+@property (nonatomic, strong) NSString *stateButtonName;
 
 @end

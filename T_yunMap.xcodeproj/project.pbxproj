@@ -9,9 +9,15 @@
 /* Begin PBXBuildFile section */
 		4A09EADD1C43B00900443AD1 /* HomepageNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EADC1C43B00900443AD1 /* HomepageNavigationController.m */; };
 		4A09EAE11C43C6D600443AD1 /* ZoomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAE01C43C6D600443AD1 /* ZoomView.m */; };
-		4A09EAE81C448FD400443AD1 /* BaseSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAE71C448FD400443AD1 /* BaseSearchController.m */; };
 		4A09EAEB1C449A3F00443AD1 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAEA1C449A3F00443AD1 /* TitleButton.m */; };
 		4A09EAEE1C44A70300443AD1 /* ToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAED1C44A70300443AD1 /* ToolBarView.m */; };
+		4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAF61C44D95D00443AD1 /* BaseSearchController.m */; };
+		4A09EAFA1C44D97C00443AD1 /* BusSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAF91C44D97C00443AD1 /* BusSearchController.m */; };
+		4A09EAFD1C44D9AD00443AD1 /* CarSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAFC1C44D9AD00443AD1 /* CarSearchController.m */; };
+		4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */; };
+		4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */; };
+		4A09EB061C44E14100443AD1 /* NaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EB051C44E14100443AD1 /* NaviBarView.m */; };
+		4A09EB091C44FB9C00443AD1 /* PointSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EB081C44FB9C00443AD1 /* PointSearchController.m */; };
 		4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */; };
 		4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */; };
 		4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */; };
@@ -53,12 +59,24 @@
 		4A09EADC1C43B00900443AD1 /* HomepageNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageNavigationController.m; sourceTree = "<group>"; };
 		4A09EADF1C43C6D600443AD1 /* ZoomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomView.h; sourceTree = "<group>"; };
 		4A09EAE01C43C6D600443AD1 /* ZoomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomView.m; sourceTree = "<group>"; };
-		4A09EAE61C448FD400443AD1 /* BaseSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSearchController.h; sourceTree = "<group>"; };
-		4A09EAE71C448FD400443AD1 /* BaseSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSearchController.m; sourceTree = "<group>"; };
 		4A09EAE91C449A3F00443AD1 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		4A09EAEA1C449A3F00443AD1 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
 		4A09EAEC1C44A70300443AD1 /* ToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBarView.h; sourceTree = "<group>"; };
 		4A09EAED1C44A70300443AD1 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
+		4A09EAF51C44D95D00443AD1 /* BaseSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSearchController.h; sourceTree = "<group>"; };
+		4A09EAF61C44D95D00443AD1 /* BaseSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSearchController.m; sourceTree = "<group>"; };
+		4A09EAF81C44D97C00443AD1 /* BusSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusSearchController.h; sourceTree = "<group>"; };
+		4A09EAF91C44D97C00443AD1 /* BusSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusSearchController.m; sourceTree = "<group>"; };
+		4A09EAFB1C44D9AD00443AD1 /* CarSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarSearchController.h; sourceTree = "<group>"; };
+		4A09EAFC1C44D9AD00443AD1 /* CarSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarSearchController.m; sourceTree = "<group>"; };
+		4A09EAFE1C44D9CB00443AD1 /* FootSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootSearchController.h; sourceTree = "<group>"; };
+		4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootSearchController.m; sourceTree = "<group>"; };
+		4A09EB011C44DA4C00443AD1 /* SearchTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTabBarController.h; sourceTree = "<group>"; };
+		4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTabBarController.m; sourceTree = "<group>"; };
+		4A09EB041C44E14100443AD1 /* NaviBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviBarView.h; sourceTree = "<group>"; };
+		4A09EB051C44E14100443AD1 /* NaviBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviBarView.m; sourceTree = "<group>"; };
+		4A09EB071C44FB9C00443AD1 /* PointSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointSearchController.h; sourceTree = "<group>"; };
+		4A09EB081C44FB9C00443AD1 /* PointSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointSearchController.m; sourceTree = "<group>"; };
 		4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSettingView.h; sourceTree = "<group>"; };
 		4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSettingView.m; sourceTree = "<group>"; };
 		4A9F921D1C3E87A000E9D793 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
@@ -131,21 +149,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4A09EAE21C448D8200443AD1 /* BusSearch */ = {
+		4A09EAE21C448D8200443AD1 /* RouteSearch */ = {
 			isa = PBXGroup;
 			children = (
 				4A09EAE51C448DC800443AD1 /* Models */,
 				4A09EAE41C448DBE00443AD1 /* Views */,
 				4A09EAE31C448DB100443AD1 /* Controllers */,
 			);
-			path = BusSearch;
+			path = RouteSearch;
 			sourceTree = "<group>";
 		};
 		4A09EAE31C448DB100443AD1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4A09EAE61C448FD400443AD1 /* BaseSearchController.h */,
-				4A09EAE71C448FD400443AD1 /* BaseSearchController.m */,
+				4A09EAF51C44D95D00443AD1 /* BaseSearchController.h */,
+				4A09EAF61C44D95D00443AD1 /* BaseSearchController.m */,
+				4A09EAF81C44D97C00443AD1 /* BusSearchController.h */,
+				4A09EAF91C44D97C00443AD1 /* BusSearchController.m */,
+				4A09EAFB1C44D9AD00443AD1 /* CarSearchController.h */,
+				4A09EAFC1C44D9AD00443AD1 /* CarSearchController.m */,
+				4A09EAFE1C44D9CB00443AD1 /* FootSearchController.h */,
+				4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */,
+				4A09EB011C44DA4C00443AD1 /* SearchTabBarController.h */,
+				4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */,
+				4A09EB071C44FB9C00443AD1 /* PointSearchController.h */,
+				4A09EB081C44FB9C00443AD1 /* PointSearchController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -153,6 +181,8 @@
 		4A09EAE41C448DBE00443AD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4A09EB041C44E14100443AD1 /* NaviBarView.h */,
+				4A09EB051C44E14100443AD1 /* NaviBarView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,7 +238,7 @@
 		4ADEA9461C3C01FF00D68F9B /* T_yunMap */ = {
 			isa = PBXGroup;
 			children = (
-				4A09EAE21C448D8200443AD1 /* BusSearch */,
+				4A09EAE21C448D8200443AD1 /* RouteSearch */,
 				4ADEA98C1C3C071F00D68F9B /* AppDelegate */,
 				4ADEA9881C3C050F00D68F9B /* Homepage */,
 				4ADEA97E1C3C026100D68F9B /* Categories */,
@@ -497,9 +527,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A09EAFA1C44D97C00443AD1 /* BusSearchController.m in Sources */,
+				4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */,
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
+				4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */,
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
 				4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */,
+				4A09EB091C44FB9C00443AD1 /* PointSearchController.m in Sources */,
 				4A09EAEB1C449A3F00443AD1 /* TitleButton.m in Sources */,
 				4A9F92251C40F26500E9D793 /* BaseModel.m in Sources */,
 				4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */,
@@ -508,10 +542,12 @@
 				4A09EADD1C43B00900443AD1 /* HomepageNavigationController.m in Sources */,
 				4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
+				4A09EAFD1C44D9AD00443AD1 /* CarSearchController.m in Sources */,
+				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
 				4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */,
 				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,
+				4A09EB061C44E14100443AD1 /* NaviBarView.m in Sources */,
 				4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */,
-				4A09EAE81C448FD400443AD1 /* BaseSearchController.m in Sources */,
 				4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

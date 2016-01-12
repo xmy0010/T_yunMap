@@ -44,6 +44,9 @@
 
 - (void)routeButtonPressed:(UIButton *)sender {
 
+    if (_RouteButtonBlock) {
+        _RouteButtonBlock(sender);
+    }
     
 }
 

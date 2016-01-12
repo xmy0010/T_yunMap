@@ -15,6 +15,8 @@
 #import "ZoomView.h"
 #import "ToolBarView.h"
 
+#import "SearchTabBarController.h"
+
 static const CGFloat kButtonWidth_Height = 40.;
 static const CGFloat kZoomViewWidth = 49;
 static const CGFloat kZoomViewHeight = 98;
@@ -139,6 +141,13 @@ static const CGFloat kZoomViewHeight = 98;
     ToolBarView *toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(marginX, marginY, width, ToolBar_Height)];
     
     [self.view addSubview:toolBarView];
+    
+    
+    
+    toolBarView.RouteButtonBlock = ^(UIButton *sender) {
+    
+        [self.navigationController pushViewController:[[SearchTabBarController alloc] init] animated:YES];
+    };
 }
 
 - (void)customTypeSettingView {

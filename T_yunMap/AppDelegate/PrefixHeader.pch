@@ -26,6 +26,10 @@
 #define Space_Normal_Eight 8.
 #define Space_Normal_Ten 10.
 #define ToolBar_Height 37.
+#define Operator_Bar_Height 20.
+
+/**通知*/
+#define SearchTabBarNotif  @"TabBarDidSelectedItem"
 
 
 #endif /* PrefixHeader_pch */

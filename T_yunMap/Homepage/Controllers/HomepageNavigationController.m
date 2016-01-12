@@ -19,9 +19,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationBarHidden = YES;
+    
     
    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    
+    self.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:animated];
+    
+    self.navigationBarHidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
