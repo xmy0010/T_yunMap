@@ -29,6 +29,9 @@
     AMapInputTipsSearchRequest *tipsRequest = [[AMapInputTipsSearchRequest alloc] init];
     tipsRequest.keywords = @"肯德基";
     tipsRequest.city = @"成都";
+    
+    //发起输入提示搜索
+    [_search AMapInputTipsSearch:tipsRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,14 +39,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - <AMapSearchDelegate>
+- (void)onInputTipsSearchDone:(AMapInputTipsSearchRequest *)request response:(AMapInputTipsSearchResponse *)response {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (response.tips.count == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"未能找到地址信息.请重新输入"];
+    }
+    
+    //通过AMapInputTipsSearchResponse
+    NSString *strCount = [NSString stringWithFormat:@"cont:%ld", response.count];
+    NSString *strtips = @"";
+    for (AMapTip *p in response.tips) {
+        strtips = [NSString stringWithFormat:@"%@ \n %@", strtips, p.description];
+        
+       
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strtips];
+     NSLog(@"InputTips:%@", result);
 }
-*/
+
 
 @end

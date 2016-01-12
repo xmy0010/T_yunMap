@@ -114,8 +114,6 @@ static const CGFloat kZoomViewHeight = 98;
     _mapView.pausesLocationUpdatesAutomatically = NO;
     _mapView.allowsBackgroundLocationUpdates = YES;
     
-    
-
 
 }
 
@@ -179,7 +177,12 @@ static const CGFloat kZoomViewHeight = 98;
     layerCleanButton.layer.cornerRadius = 5.;
     layerCleanButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     
-  
+    UIButton *userLocationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.view addSubview:userLocationButton];
+    userLocationButton.frame = CGRectMake(Space_Normal_Eight, self.view.xmy_height - ToolBar_Height - kButtonWidth_Height - Space_Normal_Eight * 2, kButtonWidth_Height, kButtonWidth_Height);
+    [userLocationButton setBackgroundImage:[UIImage imageNamed:@"verify_code_button_highlighted"] forState:UIControlStateNormal];
+    [userLocationButton addTarget:self action:@selector(userLocationButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 /**自定义地图镜头远近控制的视图*/
@@ -266,6 +269,21 @@ static const CGFloat kZoomViewHeight = 98;
 
 
 #pragma mark - Action
+
+- (void)userLocationButtonPressed:(UIButton *)sender {
+    
+    CLLocationCoordinate2D currentCoordinate = _mapView.userLocation.coordinate;
+    if (currentCoordinate.latitude == 0) {
+        
+        [SVProgressHUD showErrorWithStatus:@"无法定位,请检查您的网络环境"];
+    } else {
+    
+        //设置地图显示中心点
+        [_mapView setCenterCoordinate: currentCoordinate];
+    }
+    
+}
+
 - (void)mapTypeButtonPressed:(UIButton *)sender {
 
     [self.typeView show];
@@ -273,7 +291,46 @@ static const CGFloat kZoomViewHeight = 98;
 
 - (void)layerCleanButtonPressed:(UIButton *)sender{
 
+    //获取自定义图层
+    NSArray *overlays = _mapView.overlays;
+    NSMutableArray *cleanArr = @[].mutableCopy;
     
+    //弹窗
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"清理地图" message:@"数据清理之后不可恢复" preferredStyle: UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cleanAnnotation = [UIAlertAction actionWithTitle:@"清除自定义地点" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+       
+        //移除annotetion
+        [_mapView removeAnnotations:_mapView.annotations];
+        
+        //移除MACircle
+        for (MAShape *circle in overlays) {
+            if ([circle isKindOfClass:[MACircle class]]) {
+                
+                [cleanArr addObject:circle];
+            }
+        }
+        [_mapView removeOverlays:cleanArr];
+        [cleanArr removeAllObjects];
+    }];
+    
+    UIAlertAction *cleanOverlys = [UIAlertAction actionWithTitle:@"清除自定义线路" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        
+        //移除MAPolyline
+        for (MAShape *circle in overlays) {
+            if ([circle isKindOfClass:[MAPolyline class]]) {
+                
+                [cleanArr addObject:circle];
+            }
+        }
+        [_mapView removeOverlays:cleanArr];
+        
+    }];
+    
+    [alertController addAction:cleanAnnotation];
+    [alertController addAction:cleanOverlys];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 
 }
 
@@ -375,6 +432,7 @@ static const CGFloat kZoomViewHeight = 98;
             NSString *state = address[@"State"];
             NSString *subtitleStr = [NSString stringWithFormat:@"%@%@%@", state, city, sublocality];
             userLocation.subtitle = subtitleStr;
+            
         }];
 
     }
@@ -490,8 +548,6 @@ static const CGFloat kZoomViewHeight = 98;
         
         strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
     }
-    NSString *result = [NSString stringWithFormat:@"%@ \n %@ \n %@", strCount, strSuggestion, strPoi];
-    NSLog(@"Place:%@", result);
 
 }
 
@@ -528,7 +584,7 @@ static const CGFloat kZoomViewHeight = 98;
     for (int index = 0; index < routePolies.count; index++) {
         NSArray *coordinateArr = [routePolies[index] componentsSeparatedByString:@","];
         
-        NSLog(@"--%d, %f, %f",index, [coordinateArr.firstObject floatValue], [coordinateArr.lastObject floatValue]);
+//        NSLog(@"--%d, %f, %f",index, [coordinateArr.firstObject floatValue], [coordinateArr.lastObject floatValue]);
         commonPolylineCoords[index].longitude = [coordinateArr.firstObject floatValue];
         commonPolylineCoords[index].latitude = [coordinateArr.lastObject floatValue];
     }
@@ -543,7 +599,7 @@ static const CGFloat kZoomViewHeight = 98;
     
     
     //NSString *route = [NSString stringWithFormat:@"Navi:%@", [response.route formattedDescription]];
-    NSLog(@"%@", routePolies);
+//    NSLog(@"%@", routePolies);
     
 }
 
