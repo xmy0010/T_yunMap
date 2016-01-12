@@ -173,9 +173,15 @@ typedef NS_ENUM(NSInteger, HideType) {
     if (sender.on == YES && _mapView.isShowTraffic == NO) {
         
         _mapView.showTraffic = YES;
+        if (_mapView.isShowTraffic == YES) {
+            [SVProgressHUD showInfoWithStatus:@"开启路况事件"];
+        }
     } else {
         
         _mapView.showTraffic = NO;
+        if (_mapView.isShowTraffic == NO) {
+            [SVProgressHUD showInfoWithStatus:@"关闭路况事件"];
+        }
     }
 }
 

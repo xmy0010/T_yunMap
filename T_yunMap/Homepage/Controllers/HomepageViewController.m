@@ -6,19 +6,24 @@
 //  Copyright © 2016年 T_yun. All rights reserved.
 //
 
+
 #import "HomepageViewController.h"
+#import "HomepageNavigationController.h"
 #import "UIView+XMYExtension.h"
-#import "TitleButton.h"
 #import "TypeSettingView.h"
 #import "CustomAnnotationView.h"
+#import "ZoomView.h"
+#import "ToolBarView.h"
 
-static const CGFloat ButtonWidth_Height = 40.;
-#define TypeButtonY  ScreenSize.height / 2
+static const CGFloat kButtonWidth_Height = 40.;
+static const CGFloat kZoomViewWidth = 49;
+static const CGFloat kZoomViewHeight = 98;
+
+
+
 
 @interface HomepageViewController () <MAMapViewDelegate, AMapSearchDelegate> {
 
-    MAMapView *_mapView;
-    UIView *_upView;
     AMapSearchAPI *_aroundSearch;
     AMapSearchAPI *_routeSearch;
     
@@ -36,23 +41,21 @@ static const CGFloat ButtonWidth_Height = 40.;
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self customMap];
-//    [self customUpView];
+    [self customUpView];
     
     
     [self setupSearchAPI];
     [self setupRouteSearch];
+    
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:animated];
     
-    MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
-    pointAnnotation.coordinate = CLLocationCoordinate2DMake(37, 104);
-    pointAnnotation.title = @"方恒国际";
-    pointAnnotation.subtitle = @"阜通东大街6号";
-    
-    [_mapView addAnnotation:pointAnnotation];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +66,7 @@ static const CGFloat ButtonWidth_Height = 40.;
 /**logo 指南针 缩放相关*/
 - (void)setupCompass {
 
-    _mapView.logoCenter = CGPointMake(self.view.xmy_width - 50 , self.view.xmy_height - 50);
+    _mapView.logoCenter = CGPointMake(self.view.xmy_width - Space_Normal_Ten * 5 , self.view.xmy_height - Space_Normal_Ten * 5);
     
     //设置指南针位置
     _mapView.showsCompass = YES;
@@ -86,6 +89,7 @@ static const CGFloat ButtonWidth_Height = 40.;
     _mapView.rotateCameraEnabled = YES;
 }
 
+/**地图视图*/
 - (void)customMap {
 
     [MAMapServices sharedServices].apiKey = Gaode_key;
@@ -107,35 +111,109 @@ static const CGFloat ButtonWidth_Height = 40.;
     //后台定位
     _mapView.pausesLocationUpdatesAutomatically = NO;
     _mapView.allowsBackgroundLocationUpdates = YES;
-   
+    
+    
+
+
 }
 
+/**覆盖在地图上的功能性控件*/
 - (void)customUpView {
 
-    _upView = [[UIView alloc] initWithFrame:self.view.bounds];
-    _upView.backgroundColor = [UIColor clearColor];
-    _upView.userInteractionEnabled = YES;
-    [self.view addSubview:_upView];
+    [self customZoomView];
     
-     [self customRightButtons];
+    [self customRightButtons];
     
+    [self customTypeSettingView];
+    
+    [self customToolBarView];
+    
+    
+}
+
+- (void)customToolBarView {
+    
+    CGFloat marginX = Space_Normal_Eight;
+    CGFloat marginY = self.view.xmy_height - ToolBar_Height - Space_Normal_Eight;
+    CGFloat width = self.view.xmy_width - Space_Normal_Eight * 2;
+    ToolBarView *toolBarView = [[ToolBarView alloc] initWithFrame:CGRectMake(marginX, marginY, width, ToolBar_Height)];
+    
+    [self.view addSubview:toolBarView];
+}
+
+- (void)customTypeSettingView {
+
     CGFloat viewWidth = ScreenSize.width - 2 * Space_Normal_Eight;
     CGFloat viewHeight = 140;
     CGRect rect = CGRectMake(Space_Normal_Eight, (ScreenSize.height - viewHeight) / 2, viewWidth, viewHeight);
     TypeSettingView *typeView = [[TypeSettingView alloc] initWithInsideViewFrame:rect inView:self.view mapView:_mapView];
     self.typeView = typeView;
+    
 }
 
 - (void)customRightButtons {
 
     
     UIButton *mapTypeButton = [[UIButton alloc] init];
-    [_upView addSubview:mapTypeButton];
-    mapTypeButton.frame = CGRectMake(_upView.xmy_width - 50, TypeButtonY, ButtonWidth_Height, ButtonWidth_Height);
+    [self.view addSubview:mapTypeButton];
+    mapTypeButton.frame = CGRectMake(Space_Normal_Eight, self.view.xmy_height / 8, kButtonWidth_Height, kButtonWidth_Height);
     [mapTypeButton addTarget:self action:@selector(mapTypeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [mapTypeButton setImage:[UIImage imageNamed:@"homepage_typechose_button"] forState:UIControlStateNormal];
+    [mapTypeButton setBackgroundImage:[UIImage imageNamed:@"default_main_layer_btn_normal"] forState:UIControlStateNormal];
+    mapTypeButton.layer.cornerRadius = 5.;
+    mapTypeButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+    
+    UIButton *layerCleanButton = [[UIButton alloc] init];
+    [self.view addSubview:layerCleanButton];
+    layerCleanButton.frame = CGRectMake(Space_Normal_Eight, CGRectGetMaxY(mapTypeButton.frame) + Space_Normal_Eight, kButtonWidth_Height, kButtonWidth_Height);
+    [layerCleanButton addTarget:self action:@selector(layerCleanButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [layerCleanButton setBackgroundImage:[UIImage imageNamed:@"delete_nav_s"] forState:UIControlStateNormal];
+    layerCleanButton.layer.cornerRadius = 5.;
+    layerCleanButton.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
+    
   
 }
+
+/**自定义地图镜头远近控制的视图*/
+- (void)customZoomView {
+
+    ZoomView *zoomView = [[ZoomView alloc] initWithFrame:CGRectMake(self.view.xmy_width - kZoomViewWidth - Space_Normal_Eight, self.view.xmy_height -  ToolBar_Height - kZoomViewHeight - Space_Normal_Ten, kZoomViewWidth, kZoomViewHeight)];
+    [self.view addSubview:zoomView];
+    zoomView.backgroundColor = [UIColor clearColor];
+    
+    __weak typeof(zoomView)weakZoomView = zoomView;
+    zoomView.ZoomInButtonBlock = ^(UIButton *sender) {
+        
+        weakZoomView.zoomOutButton.enabled = YES;
+        if (_mapView.zoomLevel < 19) {
+            
+            sender.enabled = YES;
+            _mapView.zoomLevel += 2;
+        } else {
+            
+            [SVProgressHUD showInfoWithStatus:@"已是最近镜头"];
+            sender.enabled = NO;
+        }
+    };
+    
+    zoomView.ZoomOutButtonBlock = ^(UIButton *sender) {
+    
+        weakZoomView.zoomInButton.enabled = YES;
+        if (_mapView.zoomLevel - 1 >= 3) {
+            
+            sender.enabled = YES;
+            _mapView.zoomLevel -= 2;
+        }
+        else {
+            
+            [SVProgressHUD showInfoWithStatus:@"已是最远镜头"];
+            sender.enabled = NO;
+        }
+    };
+    
+}
+
+
+
 
 #pragma mark - AMapSearchAPI
 /**周边兴趣点搜索*/
@@ -181,8 +259,13 @@ static const CGFloat ButtonWidth_Height = 40.;
 #pragma mark - Action
 - (void)mapTypeButtonPressed:(UIButton *)sender {
 
-  
     [self.typeView show];
+}
+
+- (void)layerCleanButtonPressed:(UIButton *)sender{
+
+    
+
 }
 
 - (void)trafficButtonPressed:(UIButton *)sender {
@@ -286,7 +369,6 @@ static const CGFloat ButtonWidth_Height = 40.;
         }];
 
     }
-    _mapView.zoomLevel = 13;
 }
 
 /**地图添加图层调用*/

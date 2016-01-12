@@ -14,8 +14,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _titleRatio = 0.9;
-        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleRatio = 0.5;
+        self.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.titleLabel.font = [UIFont systemFontOfSize:15];
         self.imageView.contentMode = UIViewContentModeCenter;
     }
     return self;
@@ -24,7 +25,7 @@
 
 - (CGRect) imageRectForContentRect:(CGRect)contentRect
 {
-    CGFloat imgX = _titleRatio * CGRectGetWidth(contentRect);
+    CGFloat imgX = 0;
     CGFloat imgY = 0;
     CGFloat imgW = (1-_titleRatio) * CGRectGetWidth(contentRect);
     CGFloat imgH = CGRectGetHeight(contentRect);
@@ -34,7 +35,7 @@
 
 - (CGRect) titleRectForContentRect:(CGRect)contentRect
 {
-    CGFloat tX = 0;
+    CGFloat tX = _titleRatio * CGRectGetWidth(contentRect);
     CGFloat tY = 0;
     CGFloat tW = CGRectGetWidth(contentRect) * _titleRatio;
     CGFloat tH = CGRectGetHeight(contentRect);
