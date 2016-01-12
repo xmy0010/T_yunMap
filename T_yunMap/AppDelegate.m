@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomepageViewController.h"
+#import "HomepageNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -23,10 +24,29 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[HomepageViewController alloc] init];
+    HomepageViewController *homepageVC = [[HomepageViewController alloc] init];
+    HomepageNavigationController *naviC = [[HomepageNavigationController alloc] initWithRootViewController:homepageVC];
+    self.window.rootViewController = naviC;
+    naviC.mapView = homepageVC.mapView;
+
+    
     [self.window makeKeyAndVisible];
     
+    [self setupSVProgressHud];
+    
+    
     return YES;
+}
+
+
+- (void)setupSVProgressHud {
+    
+    //前景 背景
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.7]];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    
+    //遮挡
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
