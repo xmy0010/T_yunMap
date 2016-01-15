@@ -1,6 +1,9 @@
 PODS:
   - AMap3DMap (3.2.1)
   - AMapSearch (3.1.0)
+  - BmobSDK (1.6.5)
+  - IQKeyboardManager (3.3.4)
+  - RESideMenu (4.0.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -9,12 +12,18 @@ PODS:
 DEPENDENCIES:
   - AMap3DMap
   - AMapSearch
+  - BmobSDK
+  - IQKeyboardManager
+  - RESideMenu
   - SDWebImage
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AMap3DMap: 1f179c4fc41a60e42243466eb188e3be946aa163
   AMapSearch: aa7621ae8aec9cb8df116710b26e3fe3d09dc0ff
+  BmobSDK: 9928a9135a3a7823c6d8bd2bcd9baffeb8e6289a
+  IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 

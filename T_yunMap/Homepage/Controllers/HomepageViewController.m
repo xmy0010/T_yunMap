@@ -17,6 +17,9 @@
 
 #import "SearchTabBarController.h"
 
+//测试
+#import "PointSearchController.h"
+
 static const CGFloat kButtonWidth_Height = 40.;
 static const CGFloat kZoomViewWidth = 49;
 static const CGFloat kZoomViewHeight = 98;
@@ -37,10 +40,23 @@ static const CGFloat kZoomViewHeight = 98;
 
 @implementation HomepageViewController
 
+-(void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
     
     [self customMap];
     [self customUpView];
@@ -68,7 +84,9 @@ static const CGFloat kZoomViewHeight = 98;
 /**logo 指南针 缩放相关*/
 - (void)setupCompass {
 
-    _mapView.logoCenter = CGPointMake(self.view.xmy_width - Space_Normal_Ten * 5 , self.view.xmy_height - Space_Normal_Ten * 5);
+//    _mapView.logoCenter = CGPointMake(self.view.xmy_width - Space_Normal_Ten * 5 , self.view.xmy_height - Space_Normal_Ten * 5);
+    //将Logo设置到地图外
+    _mapView.logoCenter = CGPointMake(-100, -100);
     
     //设置指南针位置
     _mapView.showsCompass = YES;
@@ -141,10 +159,19 @@ static const CGFloat kZoomViewHeight = 98;
     [self.view addSubview:toolBarView];
     
     
-    
+    __weak typeof(self)weakSelf = self;
     toolBarView.RouteButtonBlock = ^(UIButton *sender) {
     
-        [self.navigationController pushViewController:[[SearchTabBarController alloc] init] animated:YES];
+        [weakSelf.navigationController pushViewController:[[SearchTabBarController alloc] init] animated:YES];
+    };
+    
+    toolBarView.ServiceButtonBlock = ^(UIButton *sender) {
+    
+#warning code here..
+        //this is test
+        PointSearchController *pointSearchC = [[PointSearchController alloc] init];
+        pointSearchC.mapView = _mapView;
+        [weakSelf.navigationController pushViewController:pointSearchC animated:YES];
     };
 }
 
@@ -326,6 +353,10 @@ static const CGFloat kZoomViewHeight = 98;
         [_mapView removeOverlays:cleanArr];
         
     }];
+    
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:cancle];
     
     [alertController addAction:cleanAnnotation];
     [alertController addAction:cleanOverlys];
@@ -541,13 +572,13 @@ static const CGFloat kZoomViewHeight = 98;
     }
     
     //通过AMapPOISearchResponse对象处理搜索结果
-    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
-    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion :%@", response.suggestion];
-    NSString *strPoi = @"";
-    for (AMapPOI *p in response.pois) {
-        
-        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
-    }
+//    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
+//    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion :%@", response.suggestion];
+//    NSString *strPoi = @"";
+//    for (AMapPOI *p in response.pois) {
+//        
+//        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
+//    }
 
 }
 

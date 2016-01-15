@@ -10,6 +10,8 @@
 #import "HomepageViewController.h"
 #import "HomepageNavigationController.h"
 
+#import "PointSearchController.h"
+
 @interface AppDelegate ()
 
 @end

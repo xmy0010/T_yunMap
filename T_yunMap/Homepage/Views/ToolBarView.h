@@ -11,5 +11,6 @@
 @interface ToolBarView : UIView
 
 @property (nonatomic, copy) void(^RouteButtonBlock)(UIButton *);
+@property (nonatomic, copy) void(^ServiceButtonBlock)(UIButton *);
 
 @end

@@ -28,14 +28,14 @@
 
     [super viewWillAppear:animated];
     
-    self.navigationBarHidden = YES;
+ 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 
     [super viewWillDisappear:animated];
     
-    self.navigationBarHidden = NO;
+   
 }
 
 - (void)didReceiveMemoryWarning {

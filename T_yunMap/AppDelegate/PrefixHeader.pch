@@ -32,4 +32,9 @@
 #define SearchTabBarNotif  @"TabBarDidSelectedItem"
 
 
+
+/**本地持久化key*/
+#define L_history @"historyTips"
+
+
 #endif /* PrefixHeader_pch */

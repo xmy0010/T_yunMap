@@ -27,17 +27,29 @@
 - (void)setupSubviews {
 
 
-    CGRect rect = CGRectMake(0, 0, self.xmy_width / 4, ToolBar_Height);
-    TitleButton *routeButton = [[TitleButton alloc] initWithFrame: rect];
-    [routeButton setTitle:@"路线" forState:UIControlStateNormal];
-    [routeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [routeButton setImage:[UIImage imageNamed:@"default_generalsearch_va_introduce_icon_route"] forState:UIControlStateNormal];
-    routeButton.titleRatio = 0.5;
+    UIButton *routeButton = [self createButtonWithMarginX:self.xmy_width / 4 title:@"路线" imageName:@"default_generalsearch_va_introduce_icon_route"];
     [routeButton addTarget:self action:@selector(routeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
- 
+   
     
-    [self addSubview:routeButton];
+    UIButton *serviceButton = [self createButtonWithMarginX:self.xmy_width / 4 * 3 title:@"服务" imageName:@"danmuSetting"];
+    [serviceButton addTarget:self action:@selector(serviceButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+
+    
+}
+
+- (UIButton *)createButtonWithMarginX:(CGFloat)marginX title:(NSString *)title imageName:(NSString*)name {
+
+    CGRect rect = CGRectMake(marginX, 0, self.xmy_width / 4, ToolBar_Height);
+    TitleButton *button = [[TitleButton alloc] initWithFrame: rect];
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed: name] forState:UIControlStateNormal];
+  
+    [self addSubview:button];
+    
+    return button;
 }
 
 #pragma mark - Acton
@@ -50,5 +62,11 @@
     
 }
 
+- (void)serviceButtonPressed:(UIButton *)sender {
+
+    if (_ServiceButtonBlock) {
+        _ServiceButtonBlock(sender);
+    }
+}
 
 @end
