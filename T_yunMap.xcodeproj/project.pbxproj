@@ -37,9 +37,11 @@
 		4ADEA9571C3C01FF00D68F9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADEA9551C3C01FF00D68F9B /* LaunchScreen.storyboard */; };
 		4ADEA9621C3C01FF00D68F9B /* T_yunMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9611C3C01FF00D68F9B /* T_yunMapTests.m */; };
 		4ADEA96D1C3C01FF00D68F9B /* T_yunMapUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA96C1C3C01FF00D68F9B /* T_yunMapUITests.m */; };
-		4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9801C3C028A00D68F9B /* MAMapView+Gesture.m */; };
 		4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9821C3C028A00D68F9B /* UIView+XMYExtension.m */; };
 		4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA98F1C3C09E900D68F9B /* HomepageViewController.m */; };
+		4AE7A19F1C48B54F0006FE60 /* AMapTip+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A19E1C48B54F0006FE60 /* AMapTip+NSCoding.m */; };
+		4AE7A1A21C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */; };
+		4AE7A1A61C48BCF30006FE60 /* MyArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A1A51C48BCF30006FE60 /* MyArchiver.m */; };
 		B57A98FE52F50ED6CEFA7288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20380C7E7E1B76B5930084F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -120,13 +122,17 @@
 		4ADEA9681C3C01FF00D68F9B /* T_yunMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = T_yunMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADEA96C1C3C01FF00D68F9B /* T_yunMapUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = T_yunMapUITests.m; sourceTree = "<group>"; };
 		4ADEA96E1C3C01FF00D68F9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4ADEA97F1C3C028A00D68F9B /* MAMapView+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MAMapView+Gesture.h"; sourceTree = "<group>"; };
-		4ADEA9801C3C028A00D68F9B /* MAMapView+Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MAMapView+Gesture.m"; sourceTree = "<group>"; };
 		4ADEA9811C3C028A00D68F9B /* UIView+XMYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XMYExtension.h"; sourceTree = "<group>"; };
 		4ADEA9821C3C028A00D68F9B /* UIView+XMYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMYExtension.m"; sourceTree = "<group>"; };
 		4ADEA98D1C3C076D00D68F9B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4ADEA98E1C3C09E900D68F9B /* HomepageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
 		4ADEA98F1C3C09E900D68F9B /* HomepageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
+		4AE7A19D1C48B54F0006FE60 /* AMapTip+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMapTip+NSCoding.h"; sourceTree = "<group>"; };
+		4AE7A19E1C48B54F0006FE60 /* AMapTip+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMapTip+NSCoding.m"; sourceTree = "<group>"; };
+		4AE7A1A01C48BAE30006FE60 /* AMapGeoPoint+NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AMapGeoPoint+NSCoding.h"; sourceTree = "<group>"; };
+		4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMapGeoPoint+NSCoding.m"; sourceTree = "<group>"; };
+		4AE7A1A41C48BCF30006FE60 /* MyArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyArchiver.h; sourceTree = "<group>"; };
+		4AE7A1A51C48BCF30006FE60 /* MyArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyArchiver.m; sourceTree = "<group>"; };
 		7CAE05920A7DE73E2285BF1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D20380C7E7E1B76B5930084F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38E915373ADD2CA73040F9B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +301,7 @@
 		4ADEA9461C3C01FF00D68F9B /* T_yunMap */ = {
 			isa = PBXGroup;
 			children = (
+				4AE7A1A31C48BC8A0006FE60 /* Tools */,
 				4ADB462D1C46433600F45869 /* PersonService */,
 				4A09EAE21C448D8200443AD1 /* RouteSearch */,
 				4ADEA98C1C3C071F00D68F9B /* AppDelegate */,
@@ -338,12 +345,14 @@
 		4ADEA97E1C3C026100D68F9B /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				4ADEA97F1C3C028A00D68F9B /* MAMapView+Gesture.h */,
-				4ADEA9801C3C028A00D68F9B /* MAMapView+Gesture.m */,
 				4ADEA9811C3C028A00D68F9B /* UIView+XMYExtension.h */,
 				4ADEA9821C3C028A00D68F9B /* UIView+XMYExtension.m */,
 				4ADB46491C4672D800F45869 /* MAUserLocation+XMYExtension.h */,
 				4ADB464A1C4672D800F45869 /* MAUserLocation+XMYExtension.m */,
+				4AE7A19D1C48B54F0006FE60 /* AMapTip+NSCoding.h */,
+				4AE7A19E1C48B54F0006FE60 /* AMapTip+NSCoding.m */,
+				4AE7A1A01C48BAE30006FE60 /* AMapGeoPoint+NSCoding.h */,
+				4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -390,6 +399,15 @@
 				4ADEA98D1C3C076D00D68F9B /* PrefixHeader.pch */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		4AE7A1A31C48BC8A0006FE60 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4AE7A1A41C48BCF30006FE60 /* MyArchiver.h */,
+				4AE7A1A51C48BCF30006FE60 /* MyArchiver.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		FC80BC7220A0314F77103A82 /* Pods */ = {
@@ -590,6 +608,7 @@
 			files = (
 				4A09EAFA1C44D97C00443AD1 /* BusSearchController.m in Sources */,
 				4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */,
+				4AE7A1A21C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m in Sources */,
 				4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */,
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
 				4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */,
@@ -598,6 +617,7 @@
 				4A09EAEB1C449A3F00443AD1 /* TitleButton.m in Sources */,
 				4ADCE7621C4730CD005229A2 /* TipsResponseModel.m in Sources */,
 				4A9F92251C40F26500E9D793 /* BaseModel.m in Sources */,
+				4AE7A19F1C48B54F0006FE60 /* AMapTip+NSCoding.m in Sources */,
 				4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */,
 				4A09EAEE1C44A70300443AD1 /* ToolBarView.m in Sources */,
 				4A09EAE11C43C6D600443AD1 /* ZoomView.m in Sources */,
@@ -608,11 +628,11 @@
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4A09EAFD1C44D9AD00443AD1 /* CarSearchController.m in Sources */,
 				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
-				4ADEA9831C3C028A00D68F9B /* MAMapView+Gesture.m in Sources */,
 				4ADB46471C4666BF00F45869 /* PointSearchController.m in Sources */,
 				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,
 				4ADB464B1C4672D800F45869 /* MAUserLocation+XMYExtension.m in Sources */,
 				4A09EB061C44E14100443AD1 /* NaviBarView.m in Sources */,
+				4AE7A1A61C48BCF30006FE60 /* MyArchiver.m in Sources */,
 				4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */,
 				4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */,
 			);

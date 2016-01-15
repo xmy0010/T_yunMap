@@ -8,6 +8,10 @@
 
 #import <AMapSearchKit/AMapSearchKit.h>
 
-@interface AMapTip (NSCoding)
+@interface AMapTip (NSCoding) <NSCoding>
+
+
+@property (nonatomic, copy) NSString *latitude;
+@property (nonatomic, copy) NSString *longitude;
 
 @end

@@ -10,4 +10,20 @@
 
 @implementation AMapGeoPoint (NSCoding)
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+
+    [aCoder encodeFloat:self.longitude forKey:@"longitude"];
+    [aCoder encodeFloat:self.latitude forKey:@"latitude"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+
+    if (self = [super init]) {
+        self.latitude = [aDecoder decodeFloatForKey:@"latitude"];
+        self.longitude = [aDecoder decodeFloatForKey:@"longitude"];
+    }
+    
+    return self;
+}
+
 @end

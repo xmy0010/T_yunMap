@@ -9,3 +9,5 @@ this is a map just copy Amap
   
 ####3.使用`UIAlertController`时 当该alert所添加的视图控制器prensent了其他控件时  不会present alert出来。 正好我主视图用`UINavigationController`导航到一个 包含了`UISearcherController`的视图控制器中。完成我想要的结果后pop回来时该searbar没有消失而是出现在了主页。当时直接将其hidden，固造成了alert不出现的错误 
 `Warning: Attempt to present <UIAlertController: 0x15ce86c10>  on <HomepageViewController: 0x15ce7fe80> which is already presenting (null)`
+
+####4.实现对搜索过的``

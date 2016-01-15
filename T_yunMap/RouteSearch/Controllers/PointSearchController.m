@@ -8,6 +8,9 @@
 
 #import "PointSearchController.h"
 #import "MAUserLocation+XMYExtension.h"
+#import "AMapTip+NSCoding.h"
+#import "MyArchiver.h"
+#import "TitleButton.h"
 
 
 @interface PointSearchController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchBarDelegate, AMapSearchDelegate> {
@@ -35,8 +38,14 @@
 
 
 - (NSMutableArray *)selectedTips {
-
     
+   _selectedTips = (NSMutableArray *)[MyArchiver fetchWithKey:kHistory];
+    
+    NSLog(@"%@", _selectedTips);
+//    if (_selectedTips == nil) {
+//        _selectedTips = @[].mutableCopy;
+//    }
+    return _selectedTips;
 }
 
 - (NSArray *)currentTips {
@@ -77,6 +86,19 @@
         [self.view addSubview:_tableView];
         _tableView.bounces = NO;
         
+        UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeSystem];;
+        [clearButton sizeToFit];
+        [clearButton addTarget:self action:@selector(clearButtonPressde:) forControlEvents:UIControlEventTouchUpInside];
+        clearButton.frame = CGRectMake(0, 0, 100, 30);
+//        [clearButton setImage:[UIImage imageNamed:@"comment_view_close_n"] forState:UIControlStateNormal];
+       [clearButton setTitle:@"点击清除地点记录" forState:UIControlStateNormal];
+//        clearButton.imageView.contentMode = UIViewContentModeRight;
+//        clearButton.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.tableView.tableFooterView = clearButton;
+        clearButton.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.6];
+    
+        
+        
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
@@ -94,7 +116,11 @@
     return _dataArray;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
 
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,8 +162,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (_searchController.active) {
+        
         return self.dataArray.count;
-    } else return 0;
+    } else {
+        
+        return self.selectedTips.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -149,8 +179,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    AMapTip *tip = self.dataArray[indexPath.row];
+    AMapTip *tip = nil;
     if (_searchController.active) {
+        
+        tip = self.dataArray[indexPath.row];
+        cell.textLabel.text = tip.name;
+    } else {
+        
+        tip = self.selectedTips[indexPath.row];
         cell.textLabel.text = tip.name;
     }
     
@@ -162,15 +198,26 @@
 #pragma mark - <UITableViewDelegate>
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    AMapTip *resultTip = self.currentTips[indexPath.row];
-    if (_PointSearchBlock) {
-        _PointSearchBlock(resultTip);
+    if (_searchController.active) {
+        AMapTip *resultTip = self.currentTips[indexPath.row];
+        if (_PointSearchBlock) {
+            _PointSearchBlock(resultTip);
+        }
+        
+        //做一下本地持久化
+        [self.selectedTips addObject:resultTip];
+        [MyArchiver archiverWithObject:_selectedTips forKey:kHistory];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        
+        //选中持久化里存的数据
+        AMapTip *resultTip = self.currentTips[indexPath.row];
+        if (_PointSearchBlock) {
+            _PointSearchBlock(resultTip);
+        }
     }
-    
-    //做一下本地持久化
-    [[NSUserDefaults standardUserDefaults] setObject:resultTip forKey: ];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+   
     
 }
 
@@ -216,6 +263,14 @@
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+#pragma mark - Action
+- (void)clearButtonPressde:(UIButton *)sender {
+
+    [MyArchiver removeData];
+    [self.tableView reloadData];
 }
 
 @end

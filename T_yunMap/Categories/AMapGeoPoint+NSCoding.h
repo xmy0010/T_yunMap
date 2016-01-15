@@ -8,6 +8,6 @@
 
 #import <AMapSearchKit/AMapSearchKit.h>
 
-@interface AMapGeoPoint (NSCoding)
+@interface AMapGeoPoint (NSCoding) <NSCoding>
 
 @end

@@ -10,4 +10,10 @@
 
 @interface MyArchiver : NSObject
 
++ (void)archiverWithObject:(id)obj forKey:(NSString *)key;
+
++ (id)fetchWithKey:(NSString *)key;
+
++ (void)removeData;
+
 @end

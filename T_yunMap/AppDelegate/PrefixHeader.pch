@@ -34,7 +34,7 @@
 
 
 /**本地持久化key*/
-#define L_history @"historyTips"
+#define kHistory @"historyTips"
 
 
 #endif /* PrefixHeader_pch */
