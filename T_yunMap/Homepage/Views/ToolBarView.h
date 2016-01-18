@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) void(^RouteButtonBlock)(UIButton *);
 @property (nonatomic, copy) void(^ServiceButtonBlock)(UIButton *);
+@property (nonatomic, copy) void(^WeatherButtonBlock)(UIButton *);
 
 @end

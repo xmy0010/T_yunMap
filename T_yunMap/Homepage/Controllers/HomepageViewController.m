@@ -64,6 +64,7 @@ static const CGFloat kZoomViewHeight = 98;
     
     [self setupSearchAPI];
     [self setupRouteSearch];
+    [self weatherSearchTest];
     
     
     
@@ -172,6 +173,12 @@ static const CGFloat kZoomViewHeight = 98;
         PointSearchController *pointSearchC = [[PointSearchController alloc] init];
         pointSearchC.mapView = _mapView;
         [weakSelf.navigationController pushViewController:pointSearchC animated:YES];
+    };
+    
+    toolBarView.WeatherButtonBlock = ^(UIButton *sender) {
+#warning weather button here...
+        
+        
     };
 }
 
@@ -292,6 +299,16 @@ static const CGFloat kZoomViewHeight = 98;
     request.requireExtension = YES;
     
     [_routeSearch AMapDrivingRouteSearch:request];
+}
+
+/**天气搜索*/
+- (void)weatherSearchTest {
+
+    AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
+    request.city = @"香港";
+    request.type = AMapWeatherTypeLive;
+    
+    [_aroundSearch AMapWeatherSearch:request];
 }
 
 
@@ -632,6 +649,21 @@ static const CGFloat kZoomViewHeight = 98;
     //NSString *route = [NSString stringWithFormat:@"Navi:%@", [response.route formattedDescription]];
 //    NSLog(@"%@", routePolies);
     
+}
+
+/**天气搜索回调*/
+- (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response {
+    NSMutableArray *weatherLives = @[].mutableCopy;
+    if (request.type == AMapWeatherTypeLive) {
+        
+        if (response.lives.count == 0) {
+            return;
+        }
+        
+        for (AMapLocalWeatherLive *live in response.lives) {
+            [weatherLives addObject:live];
+        }
+    }
 }
 
 @end

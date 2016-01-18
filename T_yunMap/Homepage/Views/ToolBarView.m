@@ -35,7 +35,8 @@
     [serviceButton addTarget:self action:@selector(serviceButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     
-
+    UIButton *weatherButton = [self createButtonWithMarginX:0 title:@"天气" imageName:@"default_mine_main_weather_normal"];
+    [weatherButton addTarget:self action:@selector(weatherButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -66,6 +67,13 @@
 
     if (_ServiceButtonBlock) {
         _ServiceButtonBlock(sender);
+    }
+}
+
+- (void)weatherButtonPressed:(UIButton *)sender {
+
+    if (_WeatherButtonBlock) {
+        _WeatherButtonBlock(sender);
     }
 }
 

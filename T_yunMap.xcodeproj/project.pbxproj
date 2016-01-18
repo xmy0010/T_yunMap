@@ -23,6 +23,13 @@
 		4A9F92251C40F26500E9D793 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92241C40F26500E9D793 /* BaseModel.m */; };
 		4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92271C40F29800E9D793 /* RouteModel.m */; };
 		4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F922A1C40F37F00E9D793 /* PathModel.m */; };
+		4AB0E92D1C4C866C00192005 /* WeatherBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E92C1C4C866C00192005 /* WeatherBackgroundView.m */; };
+		4AB0E92F1C4C869700192005 /* WeatherBackgoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0E92E1C4C869700192005 /* WeatherBackgoundView.xib */; };
+		4AB0E9331C4C8C1A00192005 /* WeatherSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E9311C4C8C1A00192005 /* WeatherSearchController.m */; };
+		4AB0E9341C4C8C1A00192005 /* WeatherSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB0E9321C4C8C1A00192005 /* WeatherSearchController.xib */; };
+		4AB0E9371C4C979D00192005 /* ChoseWeatherBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E9361C4C979D00192005 /* ChoseWeatherBG.m */; };
+		4AB0E93D1C4CDA0400192005 /* ProvinceCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */; };
+		4AB0E9401C4CDF2800192005 /* ChoseCitys.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E93F1C4CDF2800192005 /* ChoseCitys.m */; };
 		4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */; };
 		4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */; };
 		4ADB46421C4652C400F45869 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB463F1C4652C400F45869 /* MyButton.m */; };
@@ -95,6 +102,18 @@
 		4A9F92271C40F29800E9D793 /* RouteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteModel.m; sourceTree = "<group>"; };
 		4A9F92291C40F37F00E9D793 /* PathModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathModel.h; sourceTree = "<group>"; };
 		4A9F922A1C40F37F00E9D793 /* PathModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathModel.m; sourceTree = "<group>"; };
+		4AB0E92B1C4C866C00192005 /* WeatherBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherBackgroundView.h; sourceTree = "<group>"; };
+		4AB0E92C1C4C866C00192005 /* WeatherBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherBackgroundView.m; sourceTree = "<group>"; };
+		4AB0E92E1C4C869700192005 /* WeatherBackgoundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherBackgoundView.xib; sourceTree = "<group>"; };
+		4AB0E9301C4C8C1A00192005 /* WeatherSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherSearchController.h; sourceTree = "<group>"; };
+		4AB0E9311C4C8C1A00192005 /* WeatherSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherSearchController.m; sourceTree = "<group>"; };
+		4AB0E9321C4C8C1A00192005 /* WeatherSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherSearchController.xib; sourceTree = "<group>"; };
+		4AB0E9351C4C979D00192005 /* ChoseWeatherBG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoseWeatherBG.h; path = ../../Tools/ChoseWeatherBG.h; sourceTree = "<group>"; };
+		4AB0E9361C4C979D00192005 /* ChoseWeatherBG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoseWeatherBG.m; path = ../../Tools/ChoseWeatherBG.m; sourceTree = "<group>"; };
+		4AB0E93B1C4CDA0400192005 /* ProvinceCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceCollectionViewController.h; sourceTree = "<group>"; };
+		4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceCollectionViewController.m; sourceTree = "<group>"; };
+		4AB0E93E1C4CDF2800192005 /* ChoseCitys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseCitys.h; sourceTree = "<group>"; };
+		4AB0E93F1C4CDF2800192005 /* ChoseCitys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseCitys.m; sourceTree = "<group>"; };
 		4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonStoryboard.storyboard; sourceTree = "<group>"; };
 		4ADB46331C464CFF00F45869 /* PersonServiceTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonServiceTableController.h; sourceTree = "<group>"; };
 		4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonServiceTableController.m; sourceTree = "<group>"; };
@@ -219,6 +238,49 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4A479ED51C4C7A7700671AF4 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				4A479ED81C4C7AD800671AF4 /* Views */,
+				4A479ED71C4C7AD100671AF4 /* Models */,
+				4A479ED61C4C7AC600671AF4 /* Controllers */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		4A479ED61C4C7AC600671AF4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4AB0E9301C4C8C1A00192005 /* WeatherSearchController.h */,
+				4AB0E9311C4C8C1A00192005 /* WeatherSearchController.m */,
+				4AB0E9321C4C8C1A00192005 /* WeatherSearchController.xib */,
+				4AB0E93B1C4CDA0400192005 /* ProvinceCollectionViewController.h */,
+				4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4A479ED71C4C7AD100671AF4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4AB0E9351C4C979D00192005 /* ChoseWeatherBG.h */,
+				4AB0E9361C4C979D00192005 /* ChoseWeatherBG.m */,
+				4AB0E93E1C4CDF2800192005 /* ChoseCitys.h */,
+				4AB0E93F1C4CDF2800192005 /* ChoseCitys.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4A479ED81C4C7AD800671AF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AB0E92B1C4C866C00192005 /* WeatherBackgroundView.h */,
+				4AB0E92C1C4C866C00192005 /* WeatherBackgroundView.m */,
+				4AB0E92E1C4C869700192005 /* WeatherBackgoundView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4A9F92161C3D6AB200E9D793 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +363,7 @@
 		4ADEA9461C3C01FF00D68F9B /* T_yunMap */ = {
 			isa = PBXGroup;
 			children = (
+				4A479ED51C4C7A7700671AF4 /* Weather */,
 				4AE7A1A31C48BC8A0006FE60 /* Tools */,
 				4ADB462D1C46433600F45869 /* PersonService */,
 				4A09EAE21C448D8200443AD1 /* RouteSearch */,
@@ -530,8 +593,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB0E9341C4C8C1A00192005 /* WeatherSearchController.xib in Resources */,
 				4ADEA9571C3C01FF00D68F9B /* LaunchScreen.storyboard in Resources */,
 				4ADEA9541C3C01FF00D68F9B /* Assets.xcassets in Resources */,
+				4AB0E92F1C4C869700192005 /* WeatherBackgoundView.xib in Resources */,
 				4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */,
 				4ADEA9521C3C01FF00D68F9B /* Main.storyboard in Resources */,
 			);
@@ -610,6 +675,7 @@
 				4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */,
 				4AE7A1A21C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m in Sources */,
 				4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */,
+				4AB0E92D1C4C866C00192005 /* WeatherBackgroundView.m in Sources */,
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
 				4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */,
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
@@ -627,9 +693,13 @@
 				4ADB46431C4652C400F45869 /* MyImageView.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4A09EAFD1C44D9AD00443AD1 /* CarSearchController.m in Sources */,
+				4AB0E9371C4C979D00192005 /* ChoseWeatherBG.m in Sources */,
 				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
 				4ADB46471C4666BF00F45869 /* PointSearchController.m in Sources */,
+				4AB0E93D1C4CDA0400192005 /* ProvinceCollectionViewController.m in Sources */,
+				4AB0E9331C4C8C1A00192005 /* WeatherSearchController.m in Sources */,
 				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,
+				4AB0E9401C4CDF2800192005 /* ChoseCitys.m in Sources */,
 				4ADB464B1C4672D800F45869 /* MAUserLocation+XMYExtension.m in Sources */,
 				4A09EB061C44E14100443AD1 /* NaviBarView.m in Sources */,
 				4AE7A1A61C48BCF30006FE60 /* MyArchiver.m in Sources */,
