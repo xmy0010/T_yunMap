@@ -17,6 +17,15 @@
 		4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */; };
 		4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */; };
 		4A09EB061C44E14100443AD1 /* NaviBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A09EB051C44E14100443AD1 /* NaviBarView.m */; };
+		4A64DF3D1C4D1EDC0018E6D4 /* NormalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64DF3B1C4D1EDC0018E6D4 /* NormalCollectionViewCell.m */; };
+		4A64DF3E1C4D1EDC0018E6D4 /* NormalCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A64DF3C1C4D1EDC0018E6D4 /* NormalCollectionViewCell.xib */; };
+		4A64DF421C4D21140018E6D4 /* LocationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64DF401C4D21140018E6D4 /* LocationCollectionViewCell.m */; };
+		4A64DF431C4D21140018E6D4 /* LocationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A64DF411C4D21140018E6D4 /* LocationCollectionViewCell.xib */; };
+		4A64DFD21C4E1BB90018E6D4 /* CollectionHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64DFD01C4E1BB90018E6D4 /* CollectionHeaderReusableView.m */; };
+		4A64DFD31C4E1BB90018E6D4 /* CollectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A64DFD11C4E1BB90018E6D4 /* CollectionHeaderReusableView.xib */; };
+		4A64DFD91C4E2C290018E6D4 /* CityCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64DFD81C4E2C290018E6D4 /* CityCollectionViewController.m */; };
+		4A64DFE81C4E33370018E6D4 /* WeatherResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A64DFE61C4E33370018E6D4 /* WeatherResultViewController.m */; };
+		4A64DFE91C4E33370018E6D4 /* WeatherResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A64DFE71C4E33370018E6D4 /* WeatherResultViewController.xib */; };
 		4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */; };
 		4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F921E1C3E87A000E9D793 /* CustomCalloutView.m */; };
 		4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F92211C3E925F00E9D793 /* CustomAnnotationView.m */; };
@@ -90,6 +99,20 @@
 		4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTabBarController.m; sourceTree = "<group>"; };
 		4A09EB041C44E14100443AD1 /* NaviBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NaviBarView.h; sourceTree = "<group>"; };
 		4A09EB051C44E14100443AD1 /* NaviBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NaviBarView.m; sourceTree = "<group>"; };
+		4A64DF3A1C4D1EDC0018E6D4 /* NormalCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCollectionViewCell.h; sourceTree = "<group>"; };
+		4A64DF3B1C4D1EDC0018E6D4 /* NormalCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCollectionViewCell.m; sourceTree = "<group>"; };
+		4A64DF3C1C4D1EDC0018E6D4 /* NormalCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A64DF3F1C4D21140018E6D4 /* LocationCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCollectionViewCell.h; sourceTree = "<group>"; };
+		4A64DF401C4D21140018E6D4 /* LocationCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCollectionViewCell.m; sourceTree = "<group>"; };
+		4A64DF411C4D21140018E6D4 /* LocationCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A64DFCF1C4E1BB90018E6D4 /* CollectionHeaderReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderReusableView.h; sourceTree = "<group>"; };
+		4A64DFD01C4E1BB90018E6D4 /* CollectionHeaderReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderReusableView.m; sourceTree = "<group>"; };
+		4A64DFD11C4E1BB90018E6D4 /* CollectionHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeaderReusableView.xib; sourceTree = "<group>"; };
+		4A64DFD71C4E2C290018E6D4 /* CityCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCollectionViewController.h; sourceTree = "<group>"; };
+		4A64DFD81C4E2C290018E6D4 /* CityCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCollectionViewController.m; sourceTree = "<group>"; };
+		4A64DFE51C4E33370018E6D4 /* WeatherResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherResultViewController.h; sourceTree = "<group>"; };
+		4A64DFE61C4E33370018E6D4 /* WeatherResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherResultViewController.m; sourceTree = "<group>"; };
+		4A64DFE71C4E33370018E6D4 /* WeatherResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherResultViewController.xib; sourceTree = "<group>"; };
 		4A9F92191C3D6AB200E9D793 /* TypeSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSettingView.h; sourceTree = "<group>"; };
 		4A9F921A1C3D6AB200E9D793 /* TypeSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSettingView.m; sourceTree = "<group>"; };
 		4A9F921D1C3E87A000E9D793 /* CustomCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalloutView.h; sourceTree = "<group>"; };
@@ -256,6 +279,11 @@
 				4AB0E9321C4C8C1A00192005 /* WeatherSearchController.xib */,
 				4AB0E93B1C4CDA0400192005 /* ProvinceCollectionViewController.h */,
 				4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */,
+				4A64DFD71C4E2C290018E6D4 /* CityCollectionViewController.h */,
+				4A64DFD81C4E2C290018E6D4 /* CityCollectionViewController.m */,
+				4A64DFE51C4E33370018E6D4 /* WeatherResultViewController.h */,
+				4A64DFE61C4E33370018E6D4 /* WeatherResultViewController.m */,
+				4A64DFE71C4E33370018E6D4 /* WeatherResultViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,6 +305,15 @@
 				4AB0E92B1C4C866C00192005 /* WeatherBackgroundView.h */,
 				4AB0E92C1C4C866C00192005 /* WeatherBackgroundView.m */,
 				4AB0E92E1C4C869700192005 /* WeatherBackgoundView.xib */,
+				4A64DF3A1C4D1EDC0018E6D4 /* NormalCollectionViewCell.h */,
+				4A64DF3B1C4D1EDC0018E6D4 /* NormalCollectionViewCell.m */,
+				4A64DF3C1C4D1EDC0018E6D4 /* NormalCollectionViewCell.xib */,
+				4A64DF3F1C4D21140018E6D4 /* LocationCollectionViewCell.h */,
+				4A64DF401C4D21140018E6D4 /* LocationCollectionViewCell.m */,
+				4A64DF411C4D21140018E6D4 /* LocationCollectionViewCell.xib */,
+				4A64DFCF1C4E1BB90018E6D4 /* CollectionHeaderReusableView.h */,
+				4A64DFD01C4E1BB90018E6D4 /* CollectionHeaderReusableView.m */,
+				4A64DFD11C4E1BB90018E6D4 /* CollectionHeaderReusableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -597,8 +634,12 @@
 				4ADEA9571C3C01FF00D68F9B /* LaunchScreen.storyboard in Resources */,
 				4ADEA9541C3C01FF00D68F9B /* Assets.xcassets in Resources */,
 				4AB0E92F1C4C869700192005 /* WeatherBackgoundView.xib in Resources */,
+				4A64DFE91C4E33370018E6D4 /* WeatherResultViewController.xib in Resources */,
 				4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */,
 				4ADEA9521C3C01FF00D68F9B /* Main.storyboard in Resources */,
+				4A64DFD31C4E1BB90018E6D4 /* CollectionHeaderReusableView.xib in Resources */,
+				4A64DF3E1C4D1EDC0018E6D4 /* NormalCollectionViewCell.xib in Resources */,
+				4A64DF431C4D21140018E6D4 /* LocationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,9 +715,11 @@
 				4A09EAFA1C44D97C00443AD1 /* BusSearchController.m in Sources */,
 				4A09EB031C44DA4C00443AD1 /* SearchTabBarController.m in Sources */,
 				4AE7A1A21C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m in Sources */,
+				4A64DFD91C4E2C290018E6D4 /* CityCollectionViewController.m in Sources */,
 				4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */,
 				4AB0E92D1C4C866C00192005 /* WeatherBackgroundView.m in Sources */,
 				4ADEA9901C3C09E900D68F9B /* HomepageViewController.m in Sources */,
+				4A64DFE81C4E33370018E6D4 /* WeatherResultViewController.m in Sources */,
 				4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */,
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
 				4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */,
@@ -686,6 +729,7 @@
 				4AE7A19F1C48B54F0006FE60 /* AMapTip+NSCoding.m in Sources */,
 				4A9F921F1C3E87A000E9D793 /* CustomCalloutView.m in Sources */,
 				4A09EAEE1C44A70300443AD1 /* ToolBarView.m in Sources */,
+				4A64DF3D1C4D1EDC0018E6D4 /* NormalCollectionViewCell.m in Sources */,
 				4A09EAE11C43C6D600443AD1 /* ZoomView.m in Sources */,
 				4A09EADD1C43B00900443AD1 /* HomepageNavigationController.m in Sources */,
 				4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */,
@@ -693,6 +737,7 @@
 				4ADB46431C4652C400F45869 /* MyImageView.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4A09EAFD1C44D9AD00443AD1 /* CarSearchController.m in Sources */,
+				4A64DFD21C4E1BB90018E6D4 /* CollectionHeaderReusableView.m in Sources */,
 				4AB0E9371C4C979D00192005 /* ChoseWeatherBG.m in Sources */,
 				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
 				4ADB46471C4666BF00F45869 /* PointSearchController.m in Sources */,
@@ -705,6 +750,7 @@
 				4AE7A1A61C48BCF30006FE60 /* MyArchiver.m in Sources */,
 				4ADEA9841C3C028A00D68F9B /* UIView+XMYExtension.m in Sources */,
 				4A9F921C1C3D6AB200E9D793 /* TypeSettingView.m in Sources */,
+				4A64DF421C4D21140018E6D4 /* LocationCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,3 +72,6 @@ this is a map just copy Amap
         [unArchiver finishDecoding];
 
 （4.对解档出来的数据经过判断显示 
+
+####5.使用`UICollectionView`类，cell 和组头组尾都必须复用。且对于组头组尾 要设置 headerReferenceSize
+    `flowLayout.headerReferenceSize = CGSizeMake(200, 50);`

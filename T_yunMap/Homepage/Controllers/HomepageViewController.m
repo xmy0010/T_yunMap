@@ -16,6 +16,7 @@
 #import "ToolBarView.h"
 
 #import "SearchTabBarController.h"
+#import "ProvinceCollectionViewController.h"
 
 //测试
 #import "PointSearchController.h"
@@ -176,9 +177,9 @@ static const CGFloat kZoomViewHeight = 98;
     };
     
     toolBarView.WeatherButtonBlock = ^(UIButton *sender) {
-#warning weather button here...
         
-        
+        ProvinceCollectionViewController *provinceVC = [[ProvinceCollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
+        [weakSelf.navigationController pushViewController:provinceVC animated:YES];
     };
 }
 
@@ -304,11 +305,16 @@ static const CGFloat kZoomViewHeight = 98;
 /**天气搜索*/
 - (void)weatherSearchTest {
 
+    AMapSearchAPI *search = [[AMapSearchAPI alloc] init];
+    
     AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
-    request.city = @"香港";
+    request.city = @"成都市";
     request.type = AMapWeatherTypeLive;
     
-    [_aroundSearch AMapWeatherSearch:request];
+    [search AMapWeatherSearch:request];
+    
+//    request.type = AMapWeatherTypeForecast;
+//    [search AMapWeatherSearch:request];
 }
 
 
@@ -657,6 +663,7 @@ static const CGFloat kZoomViewHeight = 98;
     if (request.type == AMapWeatherTypeLive) {
         
         if (response.lives.count == 0) {
+            NSLog(@"无该地址天气");
             return;
         }
         
