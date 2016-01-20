@@ -28,6 +28,7 @@
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) AMapTip *resultTip;
 
+
 //历史记录 可做本地持久化
 @property (nonatomic, strong) NSMutableArray *selectedTips;
 
@@ -196,9 +197,20 @@
 }
 
 #pragma mark - <UITableViewDelegate>
+
+//判断是否可以被选中
+
+/**选中的是搜索出来的还是历史记录*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (_searchController.active) {
+        if (self.currentTips.count == 0) {
+            [SVProgressHUD showErrorWithStatus:@"请取消搜索条再选择历史记录"];
+            
+            
+            return;
+        }
+        
         AMapTip *resultTip = self.currentTips[indexPath.row];
         if (_PointSearchBlock) {
             _PointSearchBlock(resultTip);
@@ -212,10 +224,12 @@
     } else {
         
         //选中持久化里存的数据
-        AMapTip *resultTip = self.currentTips[indexPath.row];
+        AMapTip *resultTip = self.selectedTips[indexPath.row];
         if (_PointSearchBlock) {
             _PointSearchBlock(resultTip);
         }
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
    
     
@@ -246,7 +260,7 @@
         
         return;
     }
-    
+#warning search Type
     //通过AmapInputTipsSearchResponse对象处理搜索结果
     for (AMapTip *p in response.tips) {
         

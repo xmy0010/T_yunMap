@@ -11,5 +11,10 @@
 @interface BaseSearchController : UIViewController
 
 @property (nonatomic, strong) NSString *stateButtonName;
+@property (nonatomic, assign) SearchType searchType;
+@property (nonatomic, strong) AMapGeoPoint *originLocation;
+@property (nonatomic, strong) AMapGeoPoint *destinationLocation;
+
+- (void)searchRoute;
 
 @end

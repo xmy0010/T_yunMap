@@ -29,7 +29,8 @@ static const CGFloat kZoomViewHeight = 98;
 
 
 @interface HomepageViewController () <MAMapViewDelegate, AMapSearchDelegate> {
-
+    
+    AMapSearchAPI *_search;
     AMapSearchAPI *_aroundSearch;
     AMapSearchAPI *_routeSearch;
     
@@ -63,8 +64,6 @@ static const CGFloat kZoomViewHeight = 98;
     [self customUpView];
     
     
-    [self setupSearchAPI];
-    [self setupRouteSearch];
     [self weatherSearchTest];
     
     
@@ -122,9 +121,9 @@ static const CGFloat kZoomViewHeight = 98;
     
     [self setupCompass]; // 设置指南针 比例尺
     [self setupGestures]; //设置手势
-    
+#warning 暂时关闭用户定位
     //开启用户定位
-    _mapView.showsUserLocation = YES;
+    _mapView.showsUserLocation = NO;
     //自定义定位图层
     _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
     //地图跟着位置移动
@@ -285,33 +284,21 @@ static const CGFloat kZoomViewHeight = 98;
     [_aroundSearch AMapPOIAroundSearch:request];
 }
 
-/**路径导航搜索*/
-- (void)setupRouteSearch {
 
-    _routeSearch = [[AMapSearchAPI alloc] init];
-    _routeSearch.delegate = self;
-    
-    //构造AMapDrivingRouteSearchRequest对象 设置驾车路径规划请求参数
-    AMapDrivingRouteSearchRequest *request = [[AMapDrivingRouteSearchRequest alloc] init];
-    request.origin = [AMapGeoPoint locationWithLatitude:30.662221 longitude:104.041367];
-    request.destination = [AMapGeoPoint locationWithLatitude:30.69 longitude:104.06];
-    /// 驾车导航策略：0-速度优先（时间）；1-费用优先（不走收费路段的最快道路）；2-距离优先；3-不走快速路；4-结合实时交通（躲避拥堵）；5-多策略（同时使用速度优先、费用优先、距离优先三个策略）；6-不走高速；7-不走高速且避免收费；8-躲避收费和拥堵；9-不走高速且躲避收费和拥堵
-    request.strategy = 2;
-    request.requireExtension = YES;
-    
-    [_routeSearch AMapDrivingRouteSearch:request];
-}
+
 
 /**天气搜索*/
 - (void)weatherSearchTest {
 
-    AMapSearchAPI *search = [[AMapSearchAPI alloc] init];
+    [AMapSearchServices sharedServices].apiKey = Gaode_key;
     
+    _search = [[AMapSearchAPI alloc] init];
+    _search.delegate = self;
     AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
     request.city = @"成都市";
     request.type = AMapWeatherTypeLive;
     
-    [search AMapWeatherSearch:request];
+    [_search AMapWeatherSearch:request];
     
 //    request.type = AMapWeatherTypeForecast;
 //    [search AMapWeatherSearch:request];
@@ -672,5 +659,12 @@ static const CGFloat kZoomViewHeight = 98;
         }
     }
 }
+
+//搜索错误的回调方法
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
+
+    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+}
+
 
 @end

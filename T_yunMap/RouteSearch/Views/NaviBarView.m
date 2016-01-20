@@ -50,6 +50,7 @@
     UIButton *stateButton = [UIButton buttonWithType:UIButtonTypeCustom];
     stateButton.frame = CGRectMake(marginX, marginY, width, ToolBar_Height);
     stateButton.backgroundColor = [UIColor redColor];
+    stateButton.layer.cornerRadius = 10;
     self.stateButton = stateButton;
     
     [self addSubview:stateButton];

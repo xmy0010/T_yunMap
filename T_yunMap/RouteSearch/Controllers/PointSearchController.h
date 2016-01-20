@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) void(^PointSearchBlock)(AMapTip *);
 
+@property (nonatomic, assign) SearchType searchType;
+
 @end

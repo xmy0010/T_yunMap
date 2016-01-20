@@ -15,8 +15,17 @@
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
 #import "UIView+XMYExtension.h"
+#import <Foundation/Foundation.h>
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+typedef NS_OPTIONS(NSInteger, SearchType) {
+
+    SearchTypeCar,
+    SearchTypeBus,
+    SearchTypeFoot
+};
+
+
 
 #define Gaode_key @"7aba12b9ad249abbfead931f51ae516f"
 

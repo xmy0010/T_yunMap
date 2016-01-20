@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.stateButtonName = @"default_path_searchbtn_bus";
+    self.searchType = SearchTypeBus;
 }
 
 - (void)didReceiveMemoryWarning {

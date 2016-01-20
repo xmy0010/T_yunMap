@@ -71,7 +71,6 @@
     NSString *tempDirectory = NSHomeDirectory();
     NSString *filePath = [tempDirectory stringByAppendingPathComponent:@"Documents/tip.data"];
     
-    NSLog(@"%@", filePath);
     return filePath;
     
 }
