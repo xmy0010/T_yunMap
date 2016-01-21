@@ -221,6 +221,7 @@
         [MyArchiver archiverWithObject:_selectedTips forKey:kHistory];
         
         [self.navigationController popViewControllerAnimated:YES];
+        self.searchController = nil;
     } else {
         
         //选中持久化里存的数据
@@ -266,7 +267,7 @@
         
         AMapTip *tip = p;
         //判断该点有坐标才返回
-        if (tip.location != nil) {
+        if (tip.location.latitude > 10.) {
             [self.dataArray addObject:tip];
         }
         

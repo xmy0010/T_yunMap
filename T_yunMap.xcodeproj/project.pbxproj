@@ -59,6 +59,7 @@
 		4AE7A19F1C48B54F0006FE60 /* AMapTip+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A19E1C48B54F0006FE60 /* AMapTip+NSCoding.m */; };
 		4AE7A1A21C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */; };
 		4AE7A1A61C48BCF30006FE60 /* MyArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7A1A51C48BCF30006FE60 /* MyArchiver.m */; };
+		4AF40DC31C510E74003517A8 /* MAMapView+Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF40DC21C510E74003517A8 /* MAMapView+Singleton.m */; };
 		B57A98FE52F50ED6CEFA7288 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20380C7E7E1B76B5930084F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,8 @@
 		4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AMapGeoPoint+NSCoding.m"; sourceTree = "<group>"; };
 		4AE7A1A41C48BCF30006FE60 /* MyArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyArchiver.h; sourceTree = "<group>"; };
 		4AE7A1A51C48BCF30006FE60 /* MyArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyArchiver.m; sourceTree = "<group>"; };
+		4AF40DC11C510E74003517A8 /* MAMapView+Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MAMapView+Singleton.h"; sourceTree = "<group>"; };
+		4AF40DC21C510E74003517A8 /* MAMapView+Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MAMapView+Singleton.m"; sourceTree = "<group>"; };
 		7CAE05920A7DE73E2285BF1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D20380C7E7E1B76B5930084F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E38E915373ADD2CA73040F9B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -464,6 +467,8 @@
 				4AE7A19E1C48B54F0006FE60 /* AMapTip+NSCoding.m */,
 				4AE7A1A01C48BAE30006FE60 /* AMapGeoPoint+NSCoding.h */,
 				4AE7A1A11C48BAE30006FE60 /* AMapGeoPoint+NSCoding.m */,
+				4AF40DC11C510E74003517A8 /* MAMapView+Singleton.h */,
+				4AF40DC21C510E74003517A8 /* MAMapView+Singleton.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				4AB0E9371C4C979D00192005 /* ChoseWeatherBG.m in Sources */,
 				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
 				4ADB46471C4666BF00F45869 /* PointSearchController.m in Sources */,
+				4AF40DC31C510E74003517A8 /* MAMapView+Singleton.m in Sources */,
 				4AB0E93D1C4CDA0400192005 /* ProvinceCollectionViewController.m in Sources */,
 				4AB0E9331C4C8C1A00192005 /* WeatherSearchController.m in Sources */,
 				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,

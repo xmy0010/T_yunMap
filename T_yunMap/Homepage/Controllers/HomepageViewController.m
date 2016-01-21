@@ -14,6 +14,7 @@
 #import "CustomAnnotationView.h"
 #import "ZoomView.h"
 #import "ToolBarView.h"
+#import "MAMapView+Singleton.h"
 
 #import "SearchTabBarController.h"
 #import "ProvinceCollectionViewController.h"
@@ -118,7 +119,9 @@ static const CGFloat kZoomViewHeight = 98;
 
     [MAMapServices sharedServices].apiKey = Gaode_key;
     
-    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.xmy_width, self.view.xmy_height)];
+//    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.xmy_width, self.view.xmy_height)];
+    _mapView = [MAMapView shareMap];
+    _mapView.frame = CGRectMake(0, 0, self.view.xmy_width, self.view.xmy_height);
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     

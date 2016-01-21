@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, weak) UILabel *strategyLB;
+@property (nonatomic, assign) NSInteger strategy;
 
 @end
 
@@ -93,19 +94,19 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
   /**路径导航搜索*/
 - (void)searchRoute {
 
-    NSLog(@"search");
+
    
         
         _routeSearch = [[AMapSearchAPI alloc] init];
         _routeSearch.delegate = self;
     
-//    NSLog(@"%f%f--%f%f", self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude);
+    NSLog(@"%f%f--%f%f", self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude);
         //构造AMapDrivingRouteSearchRequest对象 设置驾车路径规划请求参数
         AMapDrivingRouteSearchRequest *request = [[AMapDrivingRouteSearchRequest alloc] init];
-        request.origin = [AMapGeoPoint locationWithLatitude:self.originLocation.latitude longitude:self.originLocation.longitude];
-        request.destination = [AMapGeoPoint locationWithLatitude:self.destinationLocation.latitude longitude:self.destinationLocation.longitude];
+        request.origin = self.originLocation;
+        request.destination = self.destinationLocation;
         /// 驾车导航策略：0-速度优先（时间）；1-费用优先（不走收费路段的最快道路）；2-距离优先；3-不走快速路；4-结合实时交通（躲避拥堵）；5-多策略（同时使用速度优先、费用优先、距离优先三个策略）；6-不走高速；7-不走高速且避免收费；8-躲避收费和拥堵；9-不走高速且躲避收费和拥堵
-        request.strategy = 2;
+        request.strategy = self.strategy;
         request.requireExtension = YES;
         
         [_routeSearch AMapDrivingRouteSearch:request];
@@ -170,7 +171,7 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 
 
     
-    
+    self.strategy = indexPath.row;
     self.strategyLB.text = [NSString stringWithFormat:@"当前策略:%@", self.dataArray[indexPath.row]];
     
     
