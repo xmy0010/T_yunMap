@@ -10,6 +10,8 @@
 
 @implementation NormalCollectionViewCell
 
+
+
 - (void)awakeFromNib {
     // Initialization code
     

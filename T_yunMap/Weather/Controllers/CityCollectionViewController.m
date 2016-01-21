@@ -12,11 +12,13 @@
 #import "WeatherResultViewController.h"
 
 
-#define kItemHeight 30.
+
 @interface CityCollectionViewController () <AMapSearchDelegate> {
     
     AMapSearchAPI *_search;
 }
+
+@property (nonatomic, strong) WeatherResultViewController *weatherVC;
 
 @end
 
@@ -123,17 +125,27 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
     
     [_search AMapWeatherSearch:request];
     
+    
+    [SVProgressHUD showWithStatus:@"查询中..."];
+    
 }
 
 #pragma mark - <AMapSearchDelegate>
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
+
+    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+}
+
 - (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response {
 
     if (request.type == AMapWeatherTypeLive) {
         
-        WeatherResultViewController *weatherVC = [[WeatherResultViewController alloc] init];
-        weatherVC.live = [response.lives firstObject];
-        
-        [self.navigationController pushViewController:weatherVC animated:YES];
+        UIStoryboard *weatherSb = [UIStoryboard storyboardWithName:@"WeatherStoryboard" bundle:nil];
+        self.weatherVC = [weatherSb instantiateViewControllerWithIdentifier:@"WeatherResultViewController"];
+       
+         self.weatherVC.live = [response.lives firstObject];
+         [self.navigationController pushViewController:self.weatherVC animated:YES];
+        [SVProgressHUD dismiss];
     }
 }
 
