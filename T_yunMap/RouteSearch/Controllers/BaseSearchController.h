@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseSearchController : UIViewController
+@interface BaseSearchController : UIViewController <AMapSearchDelegate>
 
 @property (nonatomic, strong) NSString *stateButtonName;
 @property (nonatomic, assign) SearchType searchType;
 @property (nonatomic, strong) AMapGeoPoint *originLocation;
 @property (nonatomic, strong) AMapGeoPoint *destinationLocation;
+
+@property (nonatomic, strong) UITextField *destinationTF;
+
+
+
 
 - (void)searchRoute;
 

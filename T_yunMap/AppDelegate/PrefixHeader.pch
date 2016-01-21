@@ -31,6 +31,7 @@ typedef NS_OPTIONS(NSInteger, SearchType) {
 
 /**关于尺寸*/
 #define ScreenSize [UIScreen mainScreen].bounds.size
+#define kItemHeight 30.
 
 #define Space_Normal_Eight 8.
 #define Space_Normal_Ten 10.

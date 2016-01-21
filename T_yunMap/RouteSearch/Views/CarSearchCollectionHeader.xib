@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="CarSearchCollectionHeader">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterFlowBar" translatesAutoresizingMaskIntoConstraints="NO" id="OSs-9Q-rI1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驾车策略选择" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-Uo-fEw">
+                    <rect key="frame" x="8" y="8" width="108" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="fbh-lq-PxE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-ua-NvY">
+                    <rect key="frame" x="274.5" y="8" width="37.5" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="dim-vy-rkX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="HJR-Uo-fEw" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="8" id="4AK-MV-yUR"/>
+                <constraint firstAttribute="trailing" secondItem="j3x-ua-NvY" secondAttribute="trailing" constant="8" id="6xV-bj-KEb"/>
+                <constraint firstItem="j3x-ua-NvY" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="8" id="B5F-r9-eDe"/>
+                <constraint firstItem="OSs-9Q-rI1" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="ZDl-NE-1qV"/>
+                <constraint firstAttribute="bottom" secondItem="OSs-9Q-rI1" secondAttribute="bottom" id="bz5-Hp-0iU"/>
+                <constraint firstItem="OSs-9Q-rI1" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="eA3-X9-G9m"/>
+                <constraint firstAttribute="trailing" secondItem="OSs-9Q-rI1" secondAttribute="trailing" id="fdu-gI-nDh"/>
+                <constraint firstItem="HJR-Uo-fEw" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="8" id="km2-2J-WeX"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLB" destination="j3x-ua-NvY" id="yd5-u1-zaX"/>
+            </connections>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="waterFlowBar" width="320" height="30"/>
+    </resources>
 </document>

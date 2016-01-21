@@ -265,7 +265,11 @@
     for (AMapTip *p in response.tips) {
         
         AMapTip *tip = p;
-        [self.dataArray addObject:tip];
+        //判断该点有坐标才返回
+        if (tip.location != nil) {
+            [self.dataArray addObject:tip];
+        }
+        
     }
     self.currentTips = [NSArray arrayWithArray:self.dataArray];
    [self.tableView reloadData];

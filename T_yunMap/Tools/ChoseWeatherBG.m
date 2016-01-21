@@ -55,13 +55,13 @@
                             @"rain_d_portrait.jpg",
                             @"snow_d_portrait.jpg",
                             @"foggy_d_portrait.jpg",
-                            @"other_n_portrait_blur.jpg"];
+                            @"weather_disaster_bg.jpg"];
     
     
     NSArray *weatherArrays = @[clear, cloudy, rain, stom, snow, foggy];
     
     for (int index = 0; index < weatherArrays.count; index++) {
-        
+
         if ([weatherArrays[index] containsObject:weather]) {
             
             return [UIImage imageNamed: imageNames[index]];

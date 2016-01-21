@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NaviBarView *naviBarView;
 @property (nonatomic, strong) UITextField *originTF;
-@property (nonatomic, strong) UITextField *destinationTF;
+
 
 
 @end
@@ -79,11 +79,13 @@
     self.originTF = [[UITextField alloc] initWithFrame:CGRectMake(marginX, marginY, width, height)];
     [self.view addSubview:self.originTF];
     self.originTF.backgroundColor = [UIColor whiteColor];
+    self.originTF.borderStyle = UITextBorderStyleRoundedRect;
     self.originTF.delegate = self;
     
     self.destinationTF = [[UITextField alloc] initWithFrame:CGRectMake(marginX, marginY + height + Space_Normal_Ten * 2, width, height)];
     [self.view addSubview:self.destinationTF];
     self.destinationTF.backgroundColor = [UIColor whiteColor];
+    self.destinationTF.borderStyle = UITextBorderStyleRoundedRect;
     self.destinationTF.delegate = self;
     
     UIImageView *originImageView = [[UIImageView alloc] initWithFrame:CGRectMake(Space_Normal_Eight, CGRectGetMidY(self.originTF.frame) - imageWidth_Height / 2, imageWidth_Height, imageWidth_Height)];

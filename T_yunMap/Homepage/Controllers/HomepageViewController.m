@@ -19,7 +19,7 @@
 #import "ProvinceCollectionViewController.h"
 
 //测试
-#import "PointSearchController.h"
+#import "WeatherResultViewController.h"
 
 static const CGFloat kButtonWidth_Height = 40.;
 static const CGFloat kZoomViewWidth = 49;
@@ -35,6 +35,9 @@ static const CGFloat kZoomViewHeight = 98;
     AMapSearchAPI *_routeSearch;
     
 }
+
+/**测试用*/
+@property (nonatomic, strong) WeatherResultViewController *vc;
 
 @property (nonatomic, strong) TypeSettingView *typeView;
 
@@ -170,9 +173,12 @@ static const CGFloat kZoomViewHeight = 98;
     
 #warning code here..
         //this is test
-        PointSearchController *pointSearchC = [[PointSearchController alloc] init];
-        pointSearchC.mapView = _mapView;
-        [weakSelf.navigationController pushViewController:pointSearchC animated:YES];
+      
+        if (_vc != nil) {
+              [self.navigationController pushViewController:_vc animated:YES];
+        }
+      
+       
     };
     
     toolBarView.WeatherButtonBlock = ^(UIButton *sender) {
@@ -295,7 +301,7 @@ static const CGFloat kZoomViewHeight = 98;
     _search = [[AMapSearchAPI alloc] init];
     _search.delegate = self;
     AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
-    request.city = @"成都市";
+    request.city = @"白沙县";
     request.type = AMapWeatherTypeLive;
     
     [_search AMapWeatherSearch:request];
@@ -653,10 +659,10 @@ static const CGFloat kZoomViewHeight = 98;
             NSLog(@"无该地址天气");
             return;
         }
-        
-        for (AMapLocalWeatherLive *live in response.lives) {
-            [weatherLives addObject:live];
-        }
+#warning 测试
+        UIStoryboard *weatherSb = [UIStoryboard storyboardWithName:@"WeatherStoryboard" bundle:nil];
+        self.vc = [weatherSb instantiateViewControllerWithIdentifier:@"WeatherResultViewController"];
+        self.vc.live = [response.lives firstObject];
     }
 }
 

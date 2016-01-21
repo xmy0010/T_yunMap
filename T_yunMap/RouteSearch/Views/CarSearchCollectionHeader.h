@@ -10,4 +10,7 @@
 
 @interface CarSearchCollectionHeader : UICollectionReusableView
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLB;
+
+
 @end
