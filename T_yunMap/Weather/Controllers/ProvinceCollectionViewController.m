@@ -11,13 +11,16 @@
 #import "NormalCollectionViewCell.h"
 #import "LocationCollectionViewCell.h"
 #import "CollectionHeaderReusableView.h"
+#import "WeatherResultViewController.h"
+#import "MAMapView+Singleton.h"
+#import "MAUserLocation+XMYExtension.h"
 
 #import "CityCollectionViewController.h"
 
 
 
 #define kItemHeight 30.
-@interface ProvinceCollectionViewController () <UICollectionViewDelegateFlowLayout> {
+@interface ProvinceCollectionViewController () <UICollectionViewDelegateFlowLayout, AMapSearchDelegate> {
 
     AMapSearchAPI *_search;
 }
@@ -162,6 +165,31 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 #pragma mark <UICollectionViewDelegate>
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        NSString *city = nil;
+    
+        if (indexPath.row == 0) {
+            MAMapView *map = [MAMapView shareMap];
+            city = map.userLocation.userCity;
+        }
+        
+        NormalCollectionViewCell *cell = (NormalCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        city =  cell.titleLB.text;
+        
+        _search = [[AMapSearchAPI alloc] init];
+        _search.delegate = self;
+        
+        AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
+        request.city = city;
+        request.type = AMapWeatherTypeLive;
+        
+        [_search AMapWeatherSearch:request];
+        
+        
+        [SVProgressHUD showWithStatus:@"查询中..."];
+    }
+    
     if (indexPath.section == 1) {
         
         NormalCollectionViewCell *cell = (NormalCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -175,6 +203,26 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
         
     }
     
+    
+}
+
+#pragma mark - <AMapSearchDelegate>
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
+    
+    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+}
+
+- (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response {
+    
+    if (request.type == AMapWeatherTypeLive) {
+        
+        UIStoryboard *weatherSb = [UIStoryboard storyboardWithName:@"WeatherStoryboard" bundle:nil];
+        WeatherResultViewController *weatherVC = [weatherSb instantiateViewControllerWithIdentifier:@"WeatherResultViewController"];
+        
+        weatherVC.live = [response.lives firstObject];
+        [self.navigationController pushViewController:weatherVC animated:YES];
+        [SVProgressHUD dismiss];
+    }
 }
 
 @end

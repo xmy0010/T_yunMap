@@ -7,6 +7,7 @@
 //
 
 #import "TypeSettingView.h"
+#import "MAMapView+Singleton.h"
 
 #define Lable_Width 100
 #define Lable_Height 40
@@ -30,6 +31,9 @@ typedef NS_ENUM(NSInteger, HideType) {
 @property (nonatomic, strong) UILabel *trafficLable;
 @property (nonatomic, strong) UISwitch *trafficSwitch;
 
+@property (nonatomic, strong) UILabel *locationLable;
+@property (nonatomic, strong) UISwitch *locationSwitch;
+
 @property (nonatomic, assign) CGRect subFrame;
 
 
@@ -39,12 +43,12 @@ typedef NS_ENUM(NSInteger, HideType) {
 
 #pragma mark - UI
 
-- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)suView mapView:(MAMapView *)mapView{
+- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)suView {
    
     if (self = [super init]) {
         self.frame = [UIScreen mainScreen].bounds;
         self.suView = suView;
-        self.mapView = mapView;
+        self.mapView = [MAMapView shareMap];
         self.subFrame = frame;
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
         [self addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchDown];
@@ -69,7 +73,8 @@ typedef NS_ENUM(NSInteger, HideType) {
         [self.normalMapButton addTarget:self action:@selector(normalButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.sateliteMapButton addTarget:self action:@selector(sateliteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.nightButton addTarget:self action:@selector(nightButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
+     
+        //交通状况
         self.trafficLable = [[UILabel alloc] init];
         self.trafficLable.text = @"交通状况";
         [self.imageView addSubview:_trafficLable];
@@ -78,6 +83,17 @@ typedef NS_ENUM(NSInteger, HideType) {
         [self.imageView addSubview:_trafficSwitch];
         self.trafficSwitch.on = NO;
         [self.trafficSwitch addTarget:self action:@selector(trafficSwitchAction:) forControlEvents:UIControlEventValueChanged];
+        
+        //用户定位
+        self.locationLable = [[UILabel alloc] init];
+        self.locationLable.text = @"实时定位";
+        [self.imageView addSubview:_locationLable];
+        
+        self.locationSwitch = [[UISwitch alloc] init];
+        [self.imageView addSubview:_locationSwitch];
+        self.locationSwitch.on = YES;
+        [self.locationSwitch addTarget:self action:@selector(locationSwitchAction:) forControlEvents:UIControlEventValueChanged];
+        
         
         [self setButtonsFrame];
         [self setButtonsBackgroud];
@@ -97,6 +113,9 @@ typedef NS_ENUM(NSInteger, HideType) {
     
     self.trafficLable.frame = CGRectMake(CGRectGetMinX(_sateliteMapButton.frame), CGRectGetMaxY(_sateliteMapButton.frame) + 10, Lable_Width, Lable_Height);
     self.trafficSwitch.frame = CGRectMake(CGRectGetMaxX(_nightButton.frame) - Lable_Width, CGRectGetMinY(_trafficLable.frame), Lable_Width, Lable_Height);
+    
+    self.locationLable.frame = CGRectMake(CGRectGetMinX(_trafficLable.frame), CGRectGetMinY(_trafficLable.frame) + 10 + Lable_Height, Lable_Width, Lable_Height);
+    self.locationSwitch.frame = CGRectMake(CGRectGetMinX(_trafficSwitch.frame), CGRectGetMinY(_locationLable.frame), Lable_Width, Lable_Height);
 
 }
 
@@ -181,6 +200,23 @@ typedef NS_ENUM(NSInteger, HideType) {
         _mapView.showTraffic = NO;
         if (_mapView.isShowTraffic == NO) {
             [SVProgressHUD showInfoWithStatus:@"关闭路况事件"];
+        }
+    }
+}
+
+- (void)locationSwitchAction:(UISwitch *)sender {
+
+    if (sender.on == YES && _mapView.showsUserLocation == NO) {
+        _mapView.showsUserLocation = YES;
+        if (_mapView.showsUserLocation == YES) {
+            [SVProgressHUD showInfoWithStatus:@"开启实时定位"];
+        }
+        
+    } else {
+    
+        _mapView.showsUserLocation = NO;
+        if (_mapView.showsUserLocation == NO) {
+            [SVProgressHUD showInfoWithStatus:@"关闭实时定位"];
         }
     }
 }

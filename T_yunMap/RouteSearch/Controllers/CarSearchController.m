@@ -9,6 +9,7 @@
 #import "CarSearchController.h"
 #import "NormalCollectionViewCell.h"
 #import "CarSearchCollectionHeader.h"
+#import "CarResultViewController.h"
 
 #define kHeaderHeight 50
 @interface CarSearchController ()<UICollectionViewDelegate, UICollectionViewDataSource> {
@@ -20,6 +21,9 @@
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, weak) UILabel *strategyLB;
 @property (nonatomic, assign) NSInteger strategy;
+
+//@property (nonatomic, strong) AMapTip *originTip;
+//@property (nonatomic, strong) AMapTip *destinationTip;
 
 @end
 
@@ -100,7 +104,7 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
         _routeSearch = [[AMapSearchAPI alloc] init];
         _routeSearch.delegate = self;
     
-    NSLog(@"%f%f--%f%f", self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude);
+//    NSLog(@"%f%f--%f%f", self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude);
         //构造AMapDrivingRouteSearchRequest对象 设置驾车路径规划请求参数
         AMapDrivingRouteSearchRequest *request = [[AMapDrivingRouteSearchRequest alloc] init];
         request.origin = self.originLocation;
@@ -122,6 +126,16 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 }
 
 - (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
+   
+    UIStoryboard *routeSb = [UIStoryboard storyboardWithName:@"RouteStoryboard" bundle:nil];
+    CarResultViewController *carResultVC = [routeSb instantiateViewControllerWithIdentifier:@"CarResultViewController"];
+    carResultVC.aMapRoute = response.route;
+    carResultVC.originName = self.originTF.text;
+    carResultVC.destinationName = self.destinationTF.text;
+    
+    
+    [self.navigationController pushViewController:carResultVC animated:YES];
+    
     [SVProgressHUD dismiss];
     
 }

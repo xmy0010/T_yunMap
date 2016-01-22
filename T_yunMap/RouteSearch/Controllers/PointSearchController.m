@@ -226,6 +226,7 @@
         
         //选中持久化里存的数据
         AMapTip *resultTip = self.selectedTips[indexPath.row];
+        NSString *str =  resultTip.latitude;
         if (_PointSearchBlock) {
             _PointSearchBlock(resultTip);
         }

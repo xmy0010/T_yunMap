@@ -14,14 +14,14 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"init");
+
     }
     return self;
 }
 
 - (void)awakeFromNib {
     // Initialization code
-    NSLog(@"nib");
+  
 }
 
 @end

@@ -32,11 +32,13 @@ typedef NS_OPTIONS(NSInteger, SearchType) {
 /**关于尺寸*/
 #define ScreenSize [UIScreen mainScreen].bounds.size
 #define kItemHeight 30.
+#define kCarCustomViewHeight 128
 
 #define Space_Normal_Eight 8.
 #define Space_Normal_Ten 10.
 #define ToolBar_Height 37.
 #define Operator_Bar_Height 20.
+#define navigatin_Bar_Height 64.
 
 /**通知*/
 #define SearchTabBarNotif  @"TabBarDidSelectedItem"

@@ -43,6 +43,7 @@
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeObject:self.adcode forKey:@"adcode"];
     [aCoder encodeObject:self.district forKey:@"district"];
+    [aCoder encodeObject:self.location forKey:@"location"];
     [aCoder encodeObject:self.latitude forKey:@"latitude"];
     [aCoder encodeObject:self.longitude forKey:@"longitude"];
     
@@ -55,6 +56,7 @@
         self.name = [aDecoder decodeObjectForKey:@"name"];
         self.adcode = [aDecoder decodeObjectForKey:@"adcod"];
         self.district = [aDecoder decodeObjectForKey:@"district"];
+        self.location = [aDecoder decodeObjectForKey:@"location"];
         self.latitude = [aDecoder decodeObjectForKey:@"latitude"];
         self.longitude = [aDecoder decodeObjectForKey:@"longitude"];
     }

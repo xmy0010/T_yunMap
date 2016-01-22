@@ -16,6 +16,7 @@
 @property (nonatomic, strong) AMapGeoPoint *destinationLocation;
 
 @property (nonatomic, strong) UITextField *destinationTF;
+@property (nonatomic, strong) UITextField *originTF;
 
 
 

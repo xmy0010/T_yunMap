@@ -15,6 +15,7 @@
 #import "ZoomView.h"
 #import "ToolBarView.h"
 #import "MAMapView+Singleton.h"
+#import "MAUserLocation+XMYExtension.h"
 
 #import "SearchTabBarController.h"
 #import "ProvinceCollectionViewController.h"
@@ -50,6 +51,9 @@ static const CGFloat kZoomViewHeight = 98;
 
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    
+    _mapView.frame = self.view.bounds;
+    [self.view insertSubview:_mapView atIndex:0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -78,7 +82,7 @@ static const CGFloat kZoomViewHeight = 98;
 
     [super viewDidAppear:animated];
     
-  
+   
 }
 
 - (void)didReceiveMemoryWarning {
@@ -123,12 +127,12 @@ static const CGFloat kZoomViewHeight = 98;
     _mapView = [MAMapView shareMap];
     _mapView.frame = CGRectMake(0, 0, self.view.xmy_width, self.view.xmy_height);
     _mapView.delegate = self;
+   
     [self.view addSubview:_mapView];
-    
     [self setupCompass]; // 设置指南针 比例尺
     [self setupGestures]; //设置手势
-#warning 暂时关闭用户定位
-    //开启用户定位
+
+    //关闭用户定位
     _mapView.showsUserLocation = NO;
     //自定义定位图层
     _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
@@ -194,9 +198,9 @@ static const CGFloat kZoomViewHeight = 98;
 - (void)customTypeSettingView {
 
     CGFloat viewWidth = ScreenSize.width - 2 * Space_Normal_Eight;
-    CGFloat viewHeight = 140;
+    CGFloat viewHeight = 200;
     CGRect rect = CGRectMake(Space_Normal_Eight, (ScreenSize.height - viewHeight) / 2, viewWidth, viewHeight);
-    TypeSettingView *typeView = [[TypeSettingView alloc] initWithInsideViewFrame:rect inView:self.view mapView:_mapView];
+    TypeSettingView *typeView = [[TypeSettingView alloc] initWithInsideViewFrame:rect inView:self.view];
     self.typeView = typeView;
     
 }
@@ -446,6 +450,7 @@ static const CGFloat kZoomViewHeight = 98;
     pointAnnotation.title = @"大头针";
     pointAnnotation.subtitle = @"添加的大头针";
     
+     [self getGeoCoderInfoWith:pointAnnotation];
     [_mapView addAnnotation:pointAnnotation];
     
     MACircle *circle = [MACircle circleWithCenterCoordinate:coordinate radius:24];
@@ -479,6 +484,7 @@ static const CGFloat kZoomViewHeight = 98;
             userLocation.title = address[@"Street"];
             NSString *sublocality = address[@"SubLocality"];
             NSString *city = address[@"City"];
+            _mapView.userLocation.userCity = city;
             NSString *state = address[@"State"];
             NSString *subtitleStr = [NSString stringWithFormat:@"%@%@%@", state, city, sublocality];
             userLocation.subtitle = subtitleStr;
@@ -543,7 +549,7 @@ static const CGFloat kZoomViewHeight = 98;
 /**地图添加点回调*/
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation {
 
-    [self getGeoCoderInfoWith:annotation];
+   
     if ([annotation isKindOfClass:[MAUserLocation class]]) {
         
         static NSString *userLocationStyleReuseIndetifier = @"UserLocationStyleReuseIndetifier";
@@ -601,57 +607,7 @@ static const CGFloat kZoomViewHeight = 98;
 
 }
 
-/**路径搜索回调*/
-- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
 
-    if (response.route == nil) {
-        return;
-    }
-    
-    //通过AMapNavigationSearchResponse对象处理搜索结果
-    AMapRoute *route = response.route;
-    AMapPath *path = [route.paths firstObject];
-    NSArray *steps = path.steps;
-    
-    NSMutableArray *routePolies = @[].mutableCopy;
-    for (AMapStep *step in steps) {
-        
-        NSString *polyline = step.polyline;
-        NSArray *polies = [polyline componentsSeparatedByString:@";"];
-        for (NSString *poly in polies) {
-            
-            [routePolies addObject:poly];
-        }
-    }
-    
-    /**绘制折线*/
-   
-    
-    //1.构造折线数据对象
-    CLLocationCoordinate2D commonPolylineCoords[routePolies.count];
-
-    
-    for (int index = 0; index < routePolies.count; index++) {
-        NSArray *coordinateArr = [routePolies[index] componentsSeparatedByString:@","];
-        
-//        NSLog(@"--%d, %f, %f",index, [coordinateArr.firstObject floatValue], [coordinateArr.lastObject floatValue]);
-        commonPolylineCoords[index].longitude = [coordinateArr.firstObject floatValue];
-        commonPolylineCoords[index].latitude = [coordinateArr.lastObject floatValue];
-    }
-
-    
-    //2.构造折线对象
-    MAPolyline *commonPolyline = [MAPolyline polylineWithCoordinates:commonPolylineCoords count:routePolies.count];
-    
-    //3.在地图上添加折线对象
-    [_mapView addOverlay:commonPolyline];
-    
-    
-    
-    //NSString *route = [NSString stringWithFormat:@"Navi:%@", [response.route formattedDescription]];
-//    NSLog(@"%@", routePolies);
-    
-}
 
 /**天气搜索回调*/
 - (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response {

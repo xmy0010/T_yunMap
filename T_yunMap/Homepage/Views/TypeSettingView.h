@@ -11,7 +11,7 @@
 
 @interface TypeSettingView : UIControl
 
-- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)suView mapView:(MAMapView *)mapView;
+- (instancetype)initWithInsideViewFrame:(CGRect)frame inView:(UIView *)suView;
 
 - (void)show;
 

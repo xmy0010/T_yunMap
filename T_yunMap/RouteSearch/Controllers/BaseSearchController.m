@@ -16,7 +16,7 @@
 }
 
 @property (nonatomic, strong) NaviBarView *naviBarView;
-@property (nonatomic, strong) UITextField *originTF;
+
 
 
 
