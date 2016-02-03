@@ -13,5 +13,8 @@
 @property (nonatomic, strong) AMapRoute *aMapRoute;
 @property (nonatomic, copy) NSString *originName;
 @property (nonatomic, copy) NSString *destinationName;
+@property (weak, nonatomic) IBOutlet UILabel *taxiCost;
+
+@property (nonatomic, assign)  BOOL isFootSerach;
 
 @end

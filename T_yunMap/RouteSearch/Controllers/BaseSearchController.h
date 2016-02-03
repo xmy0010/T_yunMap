@@ -18,7 +18,7 @@
 @property (nonatomic, strong) UITextField *destinationTF;
 @property (nonatomic, strong) UITextField *originTF;
 
-
+@property (nonatomic, strong) AMapSearchAPI *search;
 
 
 - (void)searchRoute;

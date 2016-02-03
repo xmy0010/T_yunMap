@@ -8,18 +8,35 @@
 
 #import "CarDetailViewController.h"
 #import "CarTableViewHeaderFooter.h"
+#import "CarTableViewCell.h"
 
 #define headerFooterHeight 50
+#define kRowHeight 70
+
+#define kKey  [NSString stringWithFormat:@"%ld", indexPath.row]
 
 @interface CarDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableDictionary *cellHeightDict;
+
 @end
 
 static NSString *const headerIdentifier = @"header";
 static NSString *const footerIdentifier = @"footer";
+static NSString *const cellIdentifier = @"CarTableViewCell";
+
 @implementation CarDetailViewController
+
+- (NSMutableDictionary *)cellHeightDict {
+
+    if (_cellHeightDict == nil) {
+        _cellHeightDict = @{}.mutableCopy;
+    }
+    
+    return _cellHeightDict;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
 
@@ -48,6 +65,8 @@ static NSString *const footerIdentifier = @"footer";
     
     self.title = @"驾车路线详情";
     
+
+    [self customRightItem];
     [self customTableView];
 }
 
@@ -56,24 +75,38 @@ static NSString *const footerIdentifier = @"footer";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)customRightItem {
+
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target: self action:@selector(rightBarButtonItemPressed:)];
+    self.navigationItem.rightBarButtonItem = right;
+    
+}
+
 - (void)customTableView {
 
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.xmy_width, self.view.xmy_height) style:UITableViewStylePlain];
     
     [self.view addSubview:self.tableView];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"CarTableViewCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
     //注册复用的header和footer
     [self.tableView registerClass:[CarTableViewHeaderFooter class] forHeaderFooterViewReuseIdentifier:headerIdentifier];
     [self.tableView registerClass:[CarTableViewHeaderFooter class] forHeaderFooterViewReuseIdentifier:footerIdentifier];
     
     self.tableView.sectionHeaderHeight = headerFooterHeight;
     self.tableView.sectionHeaderHeight = headerFooterHeight;
-    
+    self.tableView.rowHeight = 95;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
 
+#pragma mark Action
+
+- (void)rightBarButtonItemPressed:(UIBarButtonItem *)sender {
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -82,39 +115,47 @@ static NSString *const footerIdentifier = @"footer";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-#pragma 暂时测试 稍后自定义Cell
-    NSString *cellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    
+
+    CarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     AMapStep *step = self.steps[indexPath.row];
-    
-    cell.textLabel.text = step.road;
+    cell.step = step;
     
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
-    CarTableViewHeaderFooter *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    if (section != 0) {
+        return nil;
+    }
+    //复用不显示控件
+//    CarTableViewHeaderFooter *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    CarTableViewHeaderFooter *header = [[CarTableViewHeaderFooter alloc] init];
     header.titleLB.text = [NSString stringWithFormat:@"从%@出发", self.originName];
+    header.backgroundColor = [UIColor redColor];
     header.icon.image = [UIImage imageNamed: @"default_navi_history_icon_start"];
+    
+    
     
     return header;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    if (section != 0) {
+        return nil;
+    }
 
-    CarTableViewHeaderFooter *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
+//    CarTableViewHeaderFooter *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
+    CarTableViewHeaderFooter *footer = [[CarTableViewHeaderFooter alloc] init];
     footer.titleLB.text = [NSString stringWithFormat:@"到达%@", self.destinationName];
     footer.icon.image = [UIImage imageNamed: @"default_navi_history_icon_end"];
     
     return footer;
 }
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 

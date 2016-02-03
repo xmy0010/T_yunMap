@@ -40,6 +40,9 @@
 		4AB0E9371C4C979D00192005 /* ChoseWeatherBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E9361C4C979D00192005 /* ChoseWeatherBG.m */; };
 		4AB0E93D1C4CDA0400192005 /* ProvinceCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */; };
 		4AB0E9401C4CDF2800192005 /* ChoseCitys.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB0E93F1C4CDF2800192005 /* ChoseCitys.m */; };
+		4ABF939A1C61CF8000668340 /* BusResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF93991C61CF8000668340 /* BusResultViewController.m */; };
+		4ABF939E1C61DDF300668340 /* BusResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF939C1C61DDF300668340 /* BusResultCell.m */; };
+		4ABF939F1C61DDF300668340 /* BusResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF939D1C61DDF300668340 /* BusResultCell.xib */; };
 		4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */; };
 		4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */; };
 		4ADB46421C4652C400F45869 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB463F1C4652C400F45869 /* MyButton.m */; };
@@ -51,6 +54,7 @@
 		4ADD7B641C52243600F5F3C5 /* CarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD7B621C52243600F5F3C5 /* CarTableViewCell.m */; };
 		4ADD7B651C52243600F5F3C5 /* CarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ADD7B631C52243600F5F3C5 /* CarTableViewCell.xib */; };
 		4ADD7B681C5224F600F5F3C5 /* CarTableViewHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD7B671C5224F600F5F3C5 /* CarTableViewHeaderFooter.m */; };
+		4ADD7B6E1C53219C00F5F3C5 /* ActionImageChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD7B6D1C53219C00F5F3C5 /* ActionImageChoice.m */; };
 		4ADEA9491C3C01FF00D68F9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA9481C3C01FF00D68F9B /* main.m */; };
 		4ADEA94C1C3C01FF00D68F9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADEA94B1C3C01FF00D68F9B /* AppDelegate.m */; };
 		4ADEA9521C3C01FF00D68F9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADEA9501C3C01FF00D68F9B /* Main.storyboard */; };
@@ -97,8 +101,8 @@
 		4A09EAED1C44A70300443AD1 /* ToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolBarView.m; sourceTree = "<group>"; };
 		4A09EAF51C44D95D00443AD1 /* BaseSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSearchController.h; sourceTree = "<group>"; };
 		4A09EAF61C44D95D00443AD1 /* BaseSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSearchController.m; sourceTree = "<group>"; };
-		4A09EAF81C44D97C00443AD1 /* BusSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusSearchController.h; sourceTree = "<group>"; };
-		4A09EAF91C44D97C00443AD1 /* BusSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusSearchController.m; sourceTree = "<group>"; };
+		4A09EAF81C44D97C00443AD1 /* BusSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusSearchController.h; path = T_yunMap/RouteSearch/Controllers/BusSearchController.h; sourceTree = SOURCE_ROOT; };
+		4A09EAF91C44D97C00443AD1 /* BusSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusSearchController.m; path = T_yunMap/RouteSearch/Controllers/BusSearchController.m; sourceTree = SOURCE_ROOT; };
 		4A09EAFB1C44D9AD00443AD1 /* CarSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarSearchController.h; sourceTree = "<group>"; };
 		4A09EAFC1C44D9AD00443AD1 /* CarSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarSearchController.m; sourceTree = "<group>"; };
 		4A09EAFE1C44D9CB00443AD1 /* FootSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootSearchController.h; sourceTree = "<group>"; };
@@ -146,6 +150,11 @@
 		4AB0E93C1C4CDA0400192005 /* ProvinceCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceCollectionViewController.m; sourceTree = "<group>"; };
 		4AB0E93E1C4CDF2800192005 /* ChoseCitys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoseCitys.h; sourceTree = "<group>"; };
 		4AB0E93F1C4CDF2800192005 /* ChoseCitys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoseCitys.m; sourceTree = "<group>"; };
+		4ABF93981C61CF8000668340 /* BusResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusResultViewController.h; sourceTree = "<group>"; };
+		4ABF93991C61CF8000668340 /* BusResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusResultViewController.m; sourceTree = "<group>"; };
+		4ABF939B1C61DDF300668340 /* BusResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusResultCell.h; sourceTree = "<group>"; };
+		4ABF939C1C61DDF300668340 /* BusResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusResultCell.m; sourceTree = "<group>"; };
+		4ABF939D1C61DDF300668340 /* BusResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusResultCell.xib; sourceTree = "<group>"; };
 		4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonStoryboard.storyboard; sourceTree = "<group>"; };
 		4ADB46331C464CFF00F45869 /* PersonServiceTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonServiceTableController.h; sourceTree = "<group>"; };
 		4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonServiceTableController.m; sourceTree = "<group>"; };
@@ -166,6 +175,8 @@
 		4ADD7B631C52243600F5F3C5 /* CarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarTableViewCell.xib; sourceTree = "<group>"; };
 		4ADD7B661C5224F600F5F3C5 /* CarTableViewHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarTableViewHeaderFooter.h; sourceTree = "<group>"; };
 		4ADD7B671C5224F600F5F3C5 /* CarTableViewHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarTableViewHeaderFooter.m; sourceTree = "<group>"; };
+		4ADD7B6C1C53219C00F5F3C5 /* ActionImageChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionImageChoice.h; sourceTree = "<group>"; };
+		4ADD7B6D1C53219C00F5F3C5 /* ActionImageChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionImageChoice.m; sourceTree = "<group>"; };
 		4ADEA9441C3C01FF00D68F9B /* T_yunMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T_yunMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADEA9481C3C01FF00D68F9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4ADEA94A1C3C01FF00D68F9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = T_yunMap/AppDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -248,13 +259,11 @@
 		4A09EAE31C448DB100443AD1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4A6C8D651C5B77BB00B9889F /* Bus */,
+				4A6C8D611C59F07600B9889F /* Walking */,
 				4A64DFEF1C5088F90018E6D4 /* Car */,
 				4A09EAF51C44D95D00443AD1 /* BaseSearchController.h */,
 				4A09EAF61C44D95D00443AD1 /* BaseSearchController.m */,
-				4A09EAF81C44D97C00443AD1 /* BusSearchController.h */,
-				4A09EAF91C44D97C00443AD1 /* BusSearchController.m */,
-				4A09EAFE1C44D9CB00443AD1 /* FootSearchController.h */,
-				4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */,
 				4A09EB011C44DA4C00443AD1 /* SearchTabBarController.h */,
 				4A09EB021C44DA4C00443AD1 /* SearchTabBarController.m */,
 				4ADB46441C4666BF00F45869 /* PointSearchController.h */,
@@ -277,6 +286,9 @@
 				4ADD7B631C52243600F5F3C5 /* CarTableViewCell.xib */,
 				4ADD7B661C5224F600F5F3C5 /* CarTableViewHeaderFooter.h */,
 				4ADD7B671C5224F600F5F3C5 /* CarTableViewHeaderFooter.m */,
+				4ABF939B1C61DDF300668340 /* BusResultCell.h */,
+				4ABF939C1C61DDF300668340 /* BusResultCell.m */,
+				4ABF939D1C61DDF300668340 /* BusResultCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +298,8 @@
 			children = (
 				4ADCE7601C4730CD005229A2 /* TipsResponseModel.h */,
 				4ADCE7611C4730CD005229A2 /* TipsResponseModel.m */,
+				4ADD7B6C1C53219C00F5F3C5 /* ActionImageChoice.h */,
+				4ADD7B6D1C53219C00F5F3C5 /* ActionImageChoice.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,6 +370,26 @@
 				4ADD7B5F1C52144F00F5F3C5 /* CarDetailViewController.m */,
 			);
 			name = Car;
+			sourceTree = "<group>";
+		};
+		4A6C8D611C59F07600B9889F /* Walking */ = {
+			isa = PBXGroup;
+			children = (
+				4A09EAFE1C44D9CB00443AD1 /* FootSearchController.h */,
+				4A09EAFF1C44D9CB00443AD1 /* FootSearchController.m */,
+			);
+			name = Walking;
+			sourceTree = "<group>";
+		};
+		4A6C8D651C5B77BB00B9889F /* Bus */ = {
+			isa = PBXGroup;
+			children = (
+				4A09EAF81C44D97C00443AD1 /* BusSearchController.h */,
+				4A09EAF91C44D97C00443AD1 /* BusSearchController.m */,
+				4ABF93981C61CF8000668340 /* BusResultViewController.h */,
+				4ABF93991C61CF8000668340 /* BusResultViewController.m */,
+			);
+			path = Bus;
 			sourceTree = "<group>";
 		};
 		4A9F92161C3D6AB200E9D793 /* Views */ = {
@@ -677,6 +711,7 @@
 				4ADEA9571C3C01FF00D68F9B /* LaunchScreen.storyboard in Resources */,
 				4ADEA9541C3C01FF00D68F9B /* Assets.xcassets in Resources */,
 				4AB0E92F1C4C869700192005 /* WeatherBackgoundView.xib in Resources */,
+				4ABF939F1C61DDF300668340 /* BusResultCell.xib in Resources */,
 				4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */,
 				4ADEA9521C3C01FF00D68F9B /* Main.storyboard in Resources */,
 				4ADD7B651C52243600F5F3C5 /* CarTableViewCell.xib in Resources */,
@@ -766,6 +801,7 @@
 				4A64DFE81C4E33370018E6D4 /* WeatherResultViewController.m in Sources */,
 				4A09EAF71C44D95D00443AD1 /* BaseSearchController.m in Sources */,
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
+				4ABF939E1C61DDF300668340 /* BusResultCell.m in Sources */,
 				4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */,
 				4A09EAEB1C449A3F00443AD1 /* TitleButton.m in Sources */,
 				4ADCE7621C4730CD005229A2 /* TipsResponseModel.m in Sources */,
@@ -781,6 +817,7 @@
 				4ADB46421C4652C400F45869 /* MyButton.m in Sources */,
 				4ADB46431C4652C400F45869 /* MyImageView.m in Sources */,
 				4ADD7B641C52243600F5F3C5 /* CarTableViewCell.m in Sources */,
+				4ABF939A1C61CF8000668340 /* BusResultViewController.m in Sources */,
 				4A64DFED1C4FB8BE0018E6D4 /* CarSearchCollectionHeader.m in Sources */,
 				4ADEA9491C3C01FF00D68F9B /* main.m in Sources */,
 				4ADD7B681C5224F600F5F3C5 /* CarTableViewHeaderFooter.m in Sources */,
@@ -790,6 +827,7 @@
 				4A09EB001C44D9CB00443AD1 /* FootSearchController.m in Sources */,
 				4ADB46471C4666BF00F45869 /* PointSearchController.m in Sources */,
 				4AF40DC31C510E74003517A8 /* MAMapView+Singleton.m in Sources */,
+				4ADD7B6E1C53219C00F5F3C5 /* ActionImageChoice.m in Sources */,
 				4AB0E93D1C4CDA0400192005 /* ProvinceCollectionViewController.m in Sources */,
 				4AB0E9331C4C8C1A00192005 /* WeatherSearchController.m in Sources */,
 				4A9F922B1C40F37F00E9D793 /* PathModel.m in Sources */,

@@ -14,7 +14,6 @@
 #define kHeaderHeight 50
 @interface CarSearchController ()<UICollectionViewDelegate, UICollectionViewDataSource> {
 
-    AMapSearchAPI *_routeSearch;
 }
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -53,6 +52,8 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+
     
     self.stateButtonName = @"default_path_searchbtn_car";
     self.searchType = SearchTypeCar;
@@ -99,10 +100,7 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 - (void)searchRoute {
 
 
-   
-        
-        _routeSearch = [[AMapSearchAPI alloc] init];
-        _routeSearch.delegate = self;
+    
     
 //    NSLog(@"%f%f--%f%f", self.originLocation.latitude, self.originLocation.longitude, self.destinationLocation.latitude, self.destinationLocation.longitude);
         //构造AMapDrivingRouteSearchRequest对象 设置驾车路径规划请求参数
@@ -113,17 +111,14 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
         request.strategy = self.strategy;
         request.requireExtension = YES;
         
-        [_routeSearch AMapDrivingRouteSearch:request];
+        [self.search AMapDrivingRouteSearch:request];
     [SVProgressHUD showWithStatus:@"搜索中"];
     
 }
 
 
 #pragma mark - <AMapSearchDelegate>
-- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
 
-    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-}
 
 - (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
    

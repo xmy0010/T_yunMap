@@ -75,3 +75,6 @@ this is a map just copy Amap
 
 ####5.使用`UICollectionView`类，cell 和组头组尾都必须复用。且对于组头组尾 要设置 headerReferenceSize
     `flowLayout.headerReferenceSize = CGSizeMake(200, 50);`
+    
+    
+####6.对于`UITableView`的cell  和 header复用机制 `[tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier]`   函数的初始化并没有调用init  和 initWithFrame 。且这样复用子控件不显示未解决。

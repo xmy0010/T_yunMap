@@ -10,4 +10,11 @@
 
 @interface CarTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) AMapStep *step;
+@property (weak, nonatomic) IBOutlet UILabel *roadLB;
+@property (weak, nonatomic) IBOutlet UILabel *instructionLB;
+@property (weak, nonatomic) IBOutlet UIImageView *actionImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *passImageView;
+
+
 @end

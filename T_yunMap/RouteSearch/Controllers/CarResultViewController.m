@@ -10,14 +10,13 @@
 #import "MAMapView+Singleton.h"
 #import "CarDetailViewController.h"
 
-
+#define kCaloriePerMinute 3.75
 
 @interface CarResultViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *backgroudView;
 
 @property (weak, nonatomic) IBOutlet UILabel *distance;
-@property (weak, nonatomic) IBOutlet UILabel *taxiCost;
 @property (weak, nonatomic) IBOutlet UILabel *approximatelyTime;
 
 @property (weak, nonatomic) IBOutlet UILabel *routeOne;
@@ -122,12 +121,17 @@
         
     }
     
-    
+
     self.taxiCost.text = [NSString stringWithFormat:@"出租费用:%.1f元", self.aMapRoute.taxiCost];
     NSInteger minute = path.duration / 60;
     self.approximatelyTime.text = [NSString stringWithFormat:@"预计耗时:%ld分钟", minute > 1 ? minute : 1];
     self.distance.text = [NSString stringWithFormat:@"总长:%ld米", path.distance];
     
+    //步行不要出租车费用改为消耗热量
+    if (self.isFootSerach == YES) {
+        self.taxiCost.text = [NSString stringWithFormat:@"燃烧%.2f大卡", minute * kCaloriePerMinute];
+        self.taxiCost.textColor = [UIColor redColor];
+    }
 }
 
 - (void)costomMapView {

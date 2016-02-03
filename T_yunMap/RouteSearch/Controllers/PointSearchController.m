@@ -42,7 +42,6 @@
     
    _selectedTips = (NSMutableArray *)[MyArchiver fetchWithKey:kHistory];
     
-    NSLog(@"%@", _selectedTips);
 //    if (_selectedTips == nil) {
 //        _selectedTips = @[].mutableCopy;
 //    }
@@ -226,7 +225,6 @@
         
         //选中持久化里存的数据
         AMapTip *resultTip = self.selectedTips[indexPath.row];
-        NSString *str =  resultTip.latitude;
         if (_PointSearchBlock) {
             _PointSearchBlock(resultTip);
         }

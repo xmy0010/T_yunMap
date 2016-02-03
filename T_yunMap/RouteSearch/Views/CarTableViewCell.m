@@ -7,11 +7,14 @@
 //
 
 #import "CarTableViewCell.h"
+#import "ActionImageChoice.h"
 
 @implementation CarTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -19,5 +22,15 @@
 
     // Configure the view for the selected state
 }
+
+- (void)setStep:(AMapStep *)step {
+
+    _step = step;
+    self.roadLB.text = self.step.road;
+    self.instructionLB.text = self.step.instruction;
+    self.actionImageView.image = [ActionImageChoice ChoseImageWithAction:self.step.action];
+}
+
+
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "FootSearchController.h"
+#import "CarResultViewController.h"
 
-@interface FootSearchController ()
+
+@interface FootSearchController () <AMapSearchDelegate>
 
 @end
 
@@ -27,14 +29,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+/**重写父类搜索方法*/
+- (void)searchRoute {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    AMapWalkingRouteSearchRequest *request = [[AMapWalkingRouteSearchRequest alloc] init];
+    request.origin = self.originLocation;
+    request.destination = self.destinationLocation;
+    
+    [self.search AMapWalkingRouteSearch:request];
+    [SVProgressHUD showWithStatus:@"搜索中"];
+    
 }
-*/
+
+#pragma mark -<AMapSearchDelegate>
+- (void)onRouteSearchDone:(AMapRouteSearchBaseRequest *)request response:(AMapRouteSearchResponse *)response {
+    
+    UIStoryboard *routeSb = [UIStoryboard storyboardWithName:@"RouteStoryboard" bundle:nil];
+    CarResultViewController *carResultVC = [routeSb instantiateViewControllerWithIdentifier:@"CarResultViewController"];
+
+    carResultVC.aMapRoute = response.route;
+    carResultVC.originName = self.originTF.text;
+    carResultVC.destinationName = self.destinationTF.text;
+    carResultVC.isFootSerach = YES;
+    
+    
+    [self.navigationController pushViewController:carResultVC animated:YES];
+    
+    [SVProgressHUD dismiss];
+}
 
 @end

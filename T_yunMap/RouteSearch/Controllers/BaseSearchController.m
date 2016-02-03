@@ -27,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.search = [[AMapSearchAPI alloc] init];
+    self.search.delegate = self;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg01"]];
     self.navigationController.navigationBarHidden = YES;
@@ -149,6 +151,11 @@
     return NO;
 }
 
+#pragma mark AMapSearchDelegate
 
+- (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
+    
+    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+}
 
 @end
