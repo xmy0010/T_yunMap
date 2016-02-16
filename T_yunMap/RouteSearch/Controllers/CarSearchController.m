@@ -177,9 +177,6 @@ static NSString * const reuseHeader = @"CollectionHeaderReusableView";
 #pragma mark <UICollectionDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
-
-
-    
     self.strategy = indexPath.row;
     self.strategyLB.text = [NSString stringWithFormat:@"当前策略:%@", self.dataArray[indexPath.row]];
     

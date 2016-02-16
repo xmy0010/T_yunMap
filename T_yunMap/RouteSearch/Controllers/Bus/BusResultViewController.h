@@ -10,6 +10,10 @@
 
 @interface BusResultViewController : UIViewController
 
+@property (nonatomic, copy) NSString *originName;
+@property (nonatomic, copy) NSString *destinationName;
+@property (nonatomic, copy) NSString *strantegy;
+
 @property (nonatomic, strong) AMapRoute *route;
 
 @end

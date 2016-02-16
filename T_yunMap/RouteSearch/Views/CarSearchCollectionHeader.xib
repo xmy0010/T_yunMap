@@ -14,8 +14,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterFlowBar" translatesAutoresizingMaskIntoConstraints="NO" id="OSs-9Q-rI1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="驾车策略选择" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-Uo-fEw">
-                    <rect key="frame" x="8" y="8" width="108" height="32"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="策略选择" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJR-Uo-fEw">
+                    <rect key="frame" x="8" y="8" width="72" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="fbh-lq-PxE"/>
                     </constraints>
@@ -24,7 +24,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-ua-NvY">
-                    <rect key="frame" x="274.5" y="8" width="37.5" height="34"/>
+                    <rect key="frame" x="274" y="8" width="37.5" height="34"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="dim-vy-rkX"/>
                     </constraints>

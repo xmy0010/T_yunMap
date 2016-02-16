@@ -9,6 +9,7 @@
 #import "BusResultViewController.h"
 #import "CarTableViewHeaderFooter.h"
 #import "BusResultCell.h"
+#import "BusDetailViewController.h"
 
 #define headerFooterHeight 50
 
@@ -30,15 +31,17 @@ static NSString *const cellIdentifier = @"TableViewCell";
     self.navigationController.navigationBarHidden = NO;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
 
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = self.strantegy;
     
     [self  customTableView];
 }
@@ -85,5 +88,53 @@ static NSString *const cellIdentifier = @"TableViewCell";
     return cell;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    if (section != 0) {
+        return nil;
+    }
+    //复用不显示控件
+    //    CarTableViewHeaderFooter *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
+    CarTableViewHeaderFooter *header = [[CarTableViewHeaderFooter alloc] init];
+    header.titleLB.text = [NSString stringWithFormat:@"从%@出发", self.originName];
+    header.backgroundColor = [UIColor redColor];
+    header.icon.image = [UIImage imageNamed: @"default_navi_history_icon_start"];
+    
+    return header;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    if (section != 0) {
+        return nil;
+    }
+    
+    //    CarTableViewHeaderFooter *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:footerIdentifier];
+    CarTableViewHeaderFooter *footer = [[CarTableViewHeaderFooter alloc] init];
+    footer.titleLB.text = [NSString stringWithFormat:@"到达%@", self.destinationName];
+    footer.icon.image = [UIImage imageNamed: @"default_navi_history_icon_end"];
+    
+    return footer;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+
+    return headerFooterHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+
+    return headerFooterHeight;
+}
+
+#pragma mark - <UITableViewDlegate>
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    BusDetailViewController *detailVC =[[BusDetailViewController alloc] init];
+    detailVC.transit = self.route.transits[indexPath.row];
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 @end
