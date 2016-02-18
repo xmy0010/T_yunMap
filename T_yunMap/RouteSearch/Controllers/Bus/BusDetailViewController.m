@@ -57,6 +57,8 @@ static NSString *const BuslineCellIdentifier = @"BuslineCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"途径站点详情";
+    
     [self dataArray];
     [self customTableView];
 }
@@ -87,7 +89,7 @@ static NSString *const BuslineCellIdentifier = @"BuslineCell";
     }
     if ([resultObj isKindOfClass:[AMapBusLine class]]) {
         AMapBusLine *busline = (AMapBusLine *)resultObj;
-      return   busline.viaBusStops.count * 20 + 40;
+      return   busline.viaBusStops.count * 44 + 80;
     }
     
     return 0;

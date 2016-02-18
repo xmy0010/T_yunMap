@@ -133,10 +133,7 @@ static NSString *const cellIdentifier = @"CarTableViewCell";
 //    CarTableViewHeaderFooter *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:headerIdentifier];
     CarTableViewHeaderFooter *header = [[CarTableViewHeaderFooter alloc] init];
     header.titleLB.text = [NSString stringWithFormat:@"从%@出发", self.originName];
-    header.backgroundColor = [UIColor redColor];
     header.icon.image = [UIImage imageNamed: @"default_navi_history_icon_start"];
-    
-    
     
     return header;
 }

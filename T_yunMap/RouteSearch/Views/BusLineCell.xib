@@ -17,16 +17,16 @@
                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8b-EZ-pyi">
                         <rect key="frame" x="0.0" y="0.0" width="60" height="189.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_voiceguide_bus" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-d1-u1m">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="BusLineCell" image="default_voiceguide_bus" translatesAutoresizingMaskIntoConstraints="NO" id="xsn-d1-u1m">
                                 <rect key="frame" x="7" y="72" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4KT-jy-8aK"/>
                                     <constraint firstAttribute="width" constant="45" id="xiu-3B-iG8"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtH-nl-gdJ">
-                                <rect key="frame" x="7" y="121" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtH-nl-gdJ">
+                                <rect key="frame" x="7" y="121" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -36,6 +36,7 @@
                             <constraint firstAttribute="width" constant="60" id="ODf-rN-tc4"/>
                             <constraint firstItem="YtH-nl-gdJ" firstAttribute="leading" secondItem="xsn-d1-u1m" secondAttribute="leading" id="YRu-Y1-wlF"/>
                             <constraint firstItem="xsn-d1-u1m" firstAttribute="centerX" secondItem="h8b-EZ-pyi" secondAttribute="centerX" id="Z8H-dV-hd2"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YtH-nl-gdJ" secondAttribute="trailing" constant="4" id="aGy-9g-bzR"/>
                             <constraint firstItem="YtH-nl-gdJ" firstAttribute="top" secondItem="xsn-d1-u1m" secondAttribute="bottom" constant="4" id="bew-T3-KMJ"/>
                             <constraint firstItem="xsn-d1-u1m" firstAttribute="centerY" secondItem="h8b-EZ-pyi" secondAttribute="centerY" id="sVm-eI-prh"/>
                         </constraints>
@@ -60,7 +61,7 @@
                 <outlet property="rightView" destination="o1S-h0-9Qt" id="TLW-fh-xmc"/>
                 <outlet property="typeIcon" destination="xsn-d1-u1m" id="3rd-Wm-Upx"/>
             </connections>
-            <point key="canvasLocation" x="99" y="194"/>
+            <point key="canvasLocation" x="81" y="194"/>
         </tableViewCell>
     </objects>
     <resources>

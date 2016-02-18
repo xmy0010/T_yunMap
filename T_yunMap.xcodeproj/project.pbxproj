@@ -48,6 +48,7 @@
 		4ABF939A1C61CF8000668340 /* BusResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF93991C61CF8000668340 /* BusResultViewController.m */; };
 		4ABF939E1C61DDF300668340 /* BusResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF939C1C61DDF300668340 /* BusResultCell.m */; };
 		4ABF939F1C61DDF300668340 /* BusResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABF939D1C61DDF300668340 /* BusResultCell.xib */; };
+		4AD1F4E51C74909400EC0470 /* BusTableViewHeaderFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1F4E41C74909400EC0470 /* BusTableViewHeaderFooter.m */; };
 		4ADB46321C46441D00F45869 /* PersonStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */; };
 		4ADB46361C464CFF00F45869 /* PersonServiceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */; };
 		4ADB46421C4652C400F45869 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADB463F1C4652C400F45869 /* MyButton.m */; };
@@ -168,6 +169,8 @@
 		4ABF939B1C61DDF300668340 /* BusResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusResultCell.h; sourceTree = "<group>"; };
 		4ABF939C1C61DDF300668340 /* BusResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusResultCell.m; sourceTree = "<group>"; };
 		4ABF939D1C61DDF300668340 /* BusResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusResultCell.xib; sourceTree = "<group>"; };
+		4AD1F4E31C74909400EC0470 /* BusTableViewHeaderFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusTableViewHeaderFooter.h; sourceTree = "<group>"; };
+		4AD1F4E41C74909400EC0470 /* BusTableViewHeaderFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusTableViewHeaderFooter.m; sourceTree = "<group>"; };
 		4ADB46311C46441D00F45869 /* PersonStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonStoryboard.storyboard; sourceTree = "<group>"; };
 		4ADB46331C464CFF00F45869 /* PersonServiceTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonServiceTableController.h; sourceTree = "<group>"; };
 		4ADB46341C464CFF00F45869 /* PersonServiceTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonServiceTableController.m; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				4A2692E01C72DC2900B19CC1 /* BusLineCell.h */,
 				4A2692E11C72DC2900B19CC1 /* BusLineCell.m */,
 				4A2692E21C72DC2900B19CC1 /* BusLineCell.xib */,
+				4AD1F4E31C74909400EC0470 /* BusTableViewHeaderFooter.h */,
+				4AD1F4E41C74909400EC0470 /* BusTableViewHeaderFooter.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -826,6 +831,7 @@
 				4A9F92221C3E925F00E9D793 /* CustomAnnotationView.m in Sources */,
 				4ABF939E1C61DDF300668340 /* BusResultCell.m in Sources */,
 				4A9F92281C40F29800E9D793 /* RouteModel.m in Sources */,
+				4AD1F4E51C74909400EC0470 /* BusTableViewHeaderFooter.m in Sources */,
 				4A09EAEB1C449A3F00443AD1 /* TitleButton.m in Sources */,
 				4ADCE7621C4730CD005229A2 /* TipsResponseModel.m in Sources */,
 				4AFA84F61C51CD15009562F3 /* CarResultViewController.m in Sources */,
