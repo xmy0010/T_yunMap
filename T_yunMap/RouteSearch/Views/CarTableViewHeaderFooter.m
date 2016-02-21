@@ -38,7 +38,7 @@
     return self;
 }
 
-#warning 
+
 //该函数并不会调用
 - (void)customSubviews {
 

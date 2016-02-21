@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     
     [self.userIconView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userIconViewOnTap:)]];
 }

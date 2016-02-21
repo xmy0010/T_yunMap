@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NormalCollectionViewCell : UICollectionViewCell <NSCopying>
+@interface NormalCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLB;
 

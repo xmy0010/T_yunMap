@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomepageViewController.h"
 #import "HomepageNavigationController.h"
+#import <BmobSDK/Bmob.h>
 
 #import "PointSearchController.h"
 
@@ -31,6 +32,8 @@
     self.window.rootViewController = naviC;
     naviC.mapView = homepageVC.mapView;
 
+    // 向bmob服务器注册你自己的应用
+    [Bmob registerWithAppKey:@"40941a8f19a9c7ef5da23ffa9c529614"];
     
     [self.window makeKeyAndVisible];
     

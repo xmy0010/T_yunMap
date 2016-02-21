@@ -141,6 +141,10 @@
     //不显示背景
     _searchController.dimsBackgroundDuringPresentation = NO;
     
+    //
+    _searchController.dimsBackgroundDuringPresentation = NO;
+    _searchController.hidesNavigationBarDuringPresentation = NO;
+    
     //设置更新数据代理
     _searchController.searchResultsUpdater = self;
     
@@ -202,6 +206,7 @@
 /**选中的是搜索出来的还是历史记录*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    
     if (_searchController.active) {
         if (self.currentTips.count == 0) {
             [SVProgressHUD showErrorWithStatus:@"请取消搜索条再选择历史记录"];
@@ -220,7 +225,8 @@
         [MyArchiver archiverWithObject:_selectedTips forKey:kHistory];
         
         [self.navigationController popViewControllerAnimated:YES];
-        self.searchController = nil;
+//        [self.searchController.searchBar removeFromSuperview];
+        
     } else {
         
         //选中持久化里存的数据
@@ -230,9 +236,9 @@
         }
         
         [self.navigationController popViewControllerAnimated:YES];
+//        [self.searchController.searchBar removeFromSuperview];
+
     }
-   
-    
 }
 
 #pragma mark - <UISearchResultUpdation>
@@ -260,7 +266,7 @@
         
         return;
     }
-#warning search Type
+
     //通过AmapInputTipsSearchResponse对象处理搜索结果
     for (AMapTip *p in response.tips) {
         
@@ -280,7 +286,9 @@
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
 
+#warning debug 模拟器上没有事 在真机测试上会出现闪退
     [self.navigationController popViewControllerAnimated:YES];
+//    [self.searchController.searchBar removeFromSuperview];
 }
 
 

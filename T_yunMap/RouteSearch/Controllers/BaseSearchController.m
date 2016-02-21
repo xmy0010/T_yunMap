@@ -16,7 +16,7 @@
 }
 
 @property (nonatomic, strong) NaviBarView *naviBarView;
-
+@property (nonatomic, strong) PointSearchController *pointVC;
 
 
 
@@ -134,6 +134,7 @@
 
     PointSearchController *pointVC = [[PointSearchController alloc] init];
     pointVC.searchType = self.searchType;
+    self.pointVC = pointVC;
     pointVC.PointSearchBlock = ^(AMapTip *tip){
     
         textField.text = tip.name;
@@ -149,6 +150,13 @@
     [self.navigationController pushViewController:pointVC animated:YES];
     
     return NO;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+
+    self.pointVC = nil;
+    
+    return YES;
 }
 
 #pragma mark AMapSearchDelegate

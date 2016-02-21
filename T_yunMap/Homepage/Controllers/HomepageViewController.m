@@ -20,6 +20,8 @@
 #import "SearchTabBarController.h"
 #import "ProvinceCollectionViewController.h"
 
+#import "PersonServiceTableController.h"
+
 //测试
 #import "WeatherResultViewController.h"
 
@@ -70,12 +72,6 @@ static const CGFloat kZoomViewHeight = 98;
     
     [self customMap];
     [self customUpView];
-    
-    
-    [self weatherSearchTest];
-    
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -177,13 +173,11 @@ static const CGFloat kZoomViewHeight = 98;
     };
     
     toolBarView.ServiceButtonBlock = ^(UIButton *sender) {
-    
-#warning code here..
-        //this is test
-      
-        if (_vc != nil) {
-              [self.navigationController pushViewController:_vc animated:YES];
-        }
+        UIStoryboard *personStoryboard = [UIStoryboard storyboardWithName:@"PersonStoryboard" bundle:nil];
+        
+        
+        PersonServiceTableController *personVC = [personStoryboard instantiateViewControllerWithIdentifier:@"PersonServiceTableController"];
+        [weakSelf.navigationController pushViewController:personVC animated:YES];
       
        
     };
@@ -275,47 +269,47 @@ static const CGFloat kZoomViewHeight = 98;
 
 
 #pragma mark - AMapSearchAPI
-/**周边兴趣点搜索*/
-- (void)setupSearchAPI {
-
-    _aroundSearch = [[AMapSearchAPI alloc] init];
-    _aroundSearch.delegate = self;
-    
-    //构造AMapPOIAroundSearchRequest对象 设置周边请求参数
-    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
-    request.location = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
-    request.keywords = @"方恒";
-    // types属性表示限定搜索POI的类别，默认为：餐饮服务|商务住宅|生活服务
-    // POI的类型共分为20种大类别，分别为：
-    // 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
-    // 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
-    // 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
-    request.types = @"餐饮服务|生活服务";
-    request.sortrule = 0;
-    request.requireExtension = YES;
-    
-    [_aroundSearch AMapPOIAroundSearch:request];
-}
-
-
-
-
-/**天气搜索*/
-- (void)weatherSearchTest {
-
-    [AMapSearchServices sharedServices].apiKey = Gaode_key;
-    
-    _search = [[AMapSearchAPI alloc] init];
-    _search.delegate = self;
-    AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
-    request.city = @"白沙县";
-    request.type = AMapWeatherTypeLive;
-    
-    [_search AMapWeatherSearch:request];
-    
-//    request.type = AMapWeatherTypeForecast;
-//    [search AMapWeatherSearch:request];
-}
+///**周边兴趣点搜索*/
+//- (void)setupSearchAPI {
+//
+//    _aroundSearch = [[AMapSearchAPI alloc] init];
+//    _aroundSearch.delegate = self;
+//    
+//    //构造AMapPOIAroundSearchRequest对象 设置周边请求参数
+//    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+//    request.location = [AMapGeoPoint locationWithLatitude:39.990459 longitude:116.481476];
+//    request.keywords = @"方恒";
+//    // types属性表示限定搜索POI的类别，默认为：餐饮服务|商务住宅|生活服务
+//    // POI的类型共分为20种大类别，分别为：
+//    // 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
+//    // 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
+//    // 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
+//    request.types = @"餐饮服务|生活服务";
+//    request.sortrule = 0;
+//    request.requireExtension = YES;
+//    
+//    [_aroundSearch AMapPOIAroundSearch:request];
+//}
+//
+//
+//
+//
+///**天气搜索*/
+//- (void)weatherSearchTest {
+//
+//    [AMapSearchServices sharedServices].apiKey = Gaode_key;
+//    
+//    _search = [[AMapSearchAPI alloc] init];
+//    _search.delegate = self;
+//    AMapWeatherSearchRequest *request = [[AMapWeatherSearchRequest alloc] init];
+//    request.city = @"白沙县";
+//    request.type = AMapWeatherTypeLive;
+//    
+//    [_search AMapWeatherSearch:request];
+//    
+////    request.type = AMapWeatherTypeForecast;
+////    [search AMapWeatherSearch:request];
+//}
 
 
 #pragma mark - Action
@@ -588,42 +582,27 @@ static const CGFloat kZoomViewHeight = 98;
 
 #pragma mark <AMapSearchDelegate>
 
-//周边兴趣搜索回调
--(void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response {
-
-    if (response.pois.count == 0) {
-        
-        return;
-    }
-    
-    //通过AMapPOISearchResponse对象处理搜索结果
-//    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
-//    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion :%@", response.suggestion];
-//    NSString *strPoi = @"";
-//    for (AMapPOI *p in response.pois) {
+////周边兴趣搜索回调
+//-(void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response {
+//
+//    if (response.pois.count == 0) {
 //        
-//        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
+//        return;
 //    }
+//    
+//    //通过AMapPOISearchResponse对象处理搜索结果
+////    NSString *strCount = [NSString stringWithFormat:@"count: %ld", (long)response.count];
+////    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion :%@", response.suggestion];
+////    NSString *strPoi = @"";
+////    for (AMapPOI *p in response.pois) {
+////        
+////        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@", strPoi, p.name];
+////    }
+//
+//}
 
-}
 
 
-
-/**天气搜索回调*/
-- (void)onWeatherSearchDone:(AMapWeatherSearchRequest *)request response:(AMapWeatherSearchResponse *)response {
-    NSMutableArray *weatherLives = @[].mutableCopy;
-    if (request.type == AMapWeatherTypeLive) {
-        
-        if (response.lives.count == 0) {
-            NSLog(@"无该地址天气");
-            return;
-        }
-#warning 测试
-        UIStoryboard *weatherSb = [UIStoryboard storyboardWithName:@"WeatherStoryboard" bundle:nil];
-        self.vc = [weatherSb instantiateViewControllerWithIdentifier:@"WeatherResultViewController"];
-        self.vc.live = [response.lives firstObject];
-    }
-}
 
 //搜索错误的回调方法
 - (void)AMapSearchRequest:(id)request didFailWithError:(NSError *)error {
