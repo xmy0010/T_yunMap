@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FZLTXIHJW--GB1-0.TTF">
+            <string>FZLTXIHJW--GB1-0</string>
+            <string>FZLTXIHJW--GB1-0</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XRTopView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6K-32-wwB">
+                    <rect key="frame" x="0.0" y="0.0" width="188" height="44"/>
+                    <fontDescription key="fontDescription" name="FZLTXIHJW--GB1-0" family="FZLanTingHeiS-L-GB" pointSize="13"/>
+                    <state key="normal" title="排序(时间)">
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="sortByDate:" destination="iN0-l3-epB" eventType="touchUpInside" id="QgE-w1-XU1"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzF-zC-iVg">
+                    <rect key="frame" x="187" y="0.0" width="1" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="Gfo-85-Uka"/>
+                        <constraint firstAttribute="height" constant="44" id="PSB-s2-471"/>
+                    </constraints>
+                    <state key="normal" title="Button" backgroundImage="bg_bottom">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" tag="301" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU3-o8-Zh3">
+                    <rect key="frame" x="188" y="0.0" width="187" height="44"/>
+                    <fontDescription key="fontDescription" name="FZLTXIHJW--GB1-0" family="FZLanTingHeiS-L-GB" pointSize="13"/>
+                    <state key="normal" title="排序(分享)">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="sortByDate:" destination="iN0-l3-epB" eventType="touchUpInside" id="lcL-qs-7xl"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="BzF-zC-iVg" secondAttribute="centerY" id="7py-LJ-XzS"/>
+                <constraint firstItem="H6K-32-wwB" firstAttribute="width" secondItem="rU3-o8-Zh3" secondAttribute="width" id="Ah9-Eg-Mf1"/>
+                <constraint firstItem="rU3-o8-Zh3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GEH-eh-fAC"/>
+                <constraint firstAttribute="centerX" secondItem="BzF-zC-iVg" secondAttribute="centerX" id="NS9-vY-Wow"/>
+                <constraint firstAttribute="bottom" secondItem="rU3-o8-Zh3" secondAttribute="bottom" id="SkE-dm-9PO"/>
+                <constraint firstAttribute="trailing" secondItem="rU3-o8-Zh3" secondAttribute="trailing" id="X2e-c7-dO5"/>
+                <constraint firstAttribute="bottom" secondItem="H6K-32-wwB" secondAttribute="bottom" id="fgc-zN-lro"/>
+                <constraint firstItem="H6K-32-wwB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nDf-Ge-gza"/>
+                <constraint firstItem="H6K-32-wwB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nNz-YG-myr"/>
+                <constraint firstItem="rU3-o8-Zh3" firstAttribute="leading" secondItem="H6K-32-wwB" secondAttribute="trailing" id="rPz-gR-xv5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftButton" destination="H6K-32-wwB" id="mEO-fH-eoi"/>
+            </connections>
+            <point key="canvasLocation" x="467.5" y="387"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_bottom" width="5" height="59"/>
+    </resources>
+</document>
